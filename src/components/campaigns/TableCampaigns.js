@@ -80,7 +80,8 @@ function NCahootsCampaignsTable() {
             name: 'Jim Red',
             age: 32,
             address: 'London No. 2 Lake Park',
-        }
+        },
+        
     ];
       
     function onChange(pagination, filters, sorter, extra) {

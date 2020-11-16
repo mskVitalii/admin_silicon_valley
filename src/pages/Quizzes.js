@@ -9,7 +9,6 @@ const { Header, Sider, Content } = Layout
 
 
 const QuizzesPage = () => {
-    console.log('QuizzesPage')
 
     const [visible, setVisible] = useState(false);
     const initialData = [
@@ -54,7 +53,7 @@ const QuizzesPage = () => {
             <Layout>
                 <Header>Статистика</Header>
                 <Content>
-                    таблица с опросами
+                  <h3>Таблица с опросами</h3>
                     <TableNCahootsCampaigns/>
                     <div>
                         <Button

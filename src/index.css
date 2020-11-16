@@ -28,6 +28,8 @@ hr {
   /* max-width: 25% !important; */
   min-width: 25% !important;
   width: 25% !important;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
 }
 [data-theme="dark"] .ant-layout-sider {
   background: #3499ec;

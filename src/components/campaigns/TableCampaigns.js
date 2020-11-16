@@ -63,7 +63,6 @@ function NCahootsCampaignsTable({data}) {
     
     return (
     <div>
-        <h3>Таблица с NCahoots Campaigns</h3>
         <Table columns={columns} dataSource={data} onChange={onChange} />
     </div>)
 }

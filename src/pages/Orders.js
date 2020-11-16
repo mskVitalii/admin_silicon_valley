@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import TableNCahootsCampaigns  from '../components/campaigns/TableCampaigns'
 import FormOrders from '../components/orders/FormOrdersOrder'
-import { Layout, Button } from 'antd'
-
+import { Layout, Button, Tabs } from 'antd'
+import FormOrdersOrder from '../components/orders/FormOrdersOrder'
 // import PropTypes from 'prop-types'
 
 const { Header, Sider, Content } = Layout
+const { TabPane } = Tabs;
 
 
 const OrdersPage = () => {
@@ -35,7 +36,7 @@ const OrdersPage = () => {
         },
       ];
   
-      const [data, setData] = useState(initialData);
+    const [data, setData] = useState(initialData);
   
     const onCreate = (values) => {
         setData(data.concat({
@@ -47,12 +48,14 @@ const OrdersPage = () => {
       };
 
     return (
+      <Tabs defaultActiveKey="1" size={'large'} style={{ marginBottom: 32 }}>
+      <TabPane tab="Finances" key="1">
         <Layout>
-            <Sider>Либо можно сделать статистику здесь</Sider>
-            <Layout>
+          <Sider>Либо можно сделать статистику здесь</Sider>
+          <Layout>
                 <Header>Статистика</Header>
                 <Content>
-                    таблица с заказами
+                  <h3>Таблица с заказами</h3>
                     <TableNCahootsCampaigns/>
                     <div>
                         <Button
@@ -74,7 +77,63 @@ const OrdersPage = () => {
                 </Content>
             </Layout>
         </Layout>
-    )
+      </TabPane>
+      <TabPane tab="Shopping Lists" key="2">
+        <TableNCahootsCampaigns/>
+        <Button
+          type="default"
+          onClick={() => {
+            setVisible(true);
+          }}
+        >
+          Add User
+        </Button>
+        <FormOrdersOrder
+          visible={visible}
+          onCreate={onCreate}
+          onCancel={() => {
+            setVisible(false);
+          }}
+        />
+      </TabPane>
+      <TabPane tab="Wishes" key="3">
+        <TableNCahootsCampaigns/>
+        <Button
+          type="default"
+          onClick={() => {
+            setVisible(true);
+          }}
+        >
+          Add User
+        </Button>
+        <FormOrdersOrder
+          visible={visible}
+          onCreate={onCreate}
+          onCancel={() => {
+            setVisible(false);
+          }}
+        />
+      </TabPane>
+      <TabPane tab="Pictures" key="4">
+        <TableNCahootsCampaigns/>
+        <Button
+          type="default"
+          onClick={() => {
+            setVisible(true);
+          }}
+        >
+          Add User
+        </Button>
+        <FormOrdersOrder
+          visible={visible}
+          onCreate={onCreate}
+          onCancel={() => {
+            setVisible(false);
+          }}
+        />
+      </TabPane>
+    </Tabs>
+        )
 }
 
 OrdersPage.propTypes = {}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+// import PropTypes from 'prop-types'
 import { Layout, Button } from 'antd'
 
 import TableNCahootsCampaigns  from '../components/campaigns/TableCampaigns'
@@ -7,8 +8,6 @@ import ChartsCampaigns         from '../components/campaigns/ChartsCampaigns'
 import ChartsCampaignsFunel    from '../components/campaigns/ChartsCampaignsFunel'
 
 
-// import PropTypes from 'prop-types'
-
 const { Header, Sider, Content } = Layout
 
 
@@ -16,7 +15,7 @@ const CampaingsPage = () => {
 
     const [visible, setVisible] = useState(false);
 
-    const initialData = [
+    let initialData = [
       {
           key: '1',
           name: 'John Brown',
@@ -39,6 +38,14 @@ const CampaingsPage = () => {
           address: 'London No. 2 Lake Park',
       },
     ];
+    for (let i = 5; i <= 8; i++) {
+      initialData.push({
+        key: `${i}`,
+        name: ['John Brown', 'Jim Green', 'Joe Black', 'Jim Red'][Math.floor(Math.random() * 4)],
+        age: 20 + Math.floor(Math.random() * 30),
+        address: ['London No. 2 Lake Park', 'Sidney No. 1 Lake Park', 'London No. 1 Lake Park', 'New York No. 1 Lake Park'][Math.floor(Math.random() * 4)],
+    })
+    }
 
     const [data, setData] = useState(initialData);
 
@@ -66,50 +73,49 @@ const CampaingsPage = () => {
     // )
 
     return (
+      <Layout>
+        <Sider style={{height: '100%'}}>
+          <h2 style={{color: 'white', textAlign: 'center'}}>Статистика</h2>
+          <div style={{height: '80%', paddingBottom: '1rem', paddingTop: '0.25rem'}}>
+            <ChartsCampaigns/>
+          </div>
+          <div style={{height: '40%', paddingBottom: '1rem', paddingTop: '0.25rem'}}>
+              <ChartsCampaignsFunel/>
+          </div>
+        </Sider>
         <Layout>
-            <Sider style={{height: '100%'}}>
-              Либо можно сделать статистику здесь
-              <div style={{height: '80%', paddingBottom: '1rem', paddingTop: '0.25rem'}}>
+          <Header style={{height: '45vh'}}>
+            <h3 style={{lineHeight: '5vh'}}>Статистика [Или самая важная статистика]</h3>
+            <div style={{display: 'flex'}}>
+              <div style={{height: '35vh', width: '50%', marginRight: 'auto'}}>
                 <ChartsCampaigns/>
               </div>
-              <div style={{height: '40%', paddingBottom: '1rem', paddingTop: '0.25rem'}}>
-                  <ChartsCampaignsFunel/>
+              <div style={{height: '35vh', width: '50%', float: "right"}}>
+                <ChartsCampaignsFunel/>
               </div>
-            </Sider>
-            <Layout>
-                <Header style={{height: '45vh'}}>
-                  <h3 style={{lineHeight: '5vh'}}>Статистика</h3>
-                    <div style={{display: 'flex'}}>
-                    <div style={{height: '35vh', width: '50%', marginRight: 'auto'}}>
-                      <ChartsCampaigns/>
-                    </div>
-                    <div style={{height: '35vh', width: '50%', float: "right"}}>
-                      <ChartsCampaignsFunel/>
-                    </div>
-                    </div>
-                </Header>
-                <Content>
-                    <TableNCahootsCampaigns data={data}/>
-                    <div>
-                        <Button
-                          type="default"
-                          onClick={() => {
-                            setVisible(true);
-                          }}
-                        >
-                          Add a Campaign
-                        </Button>
-                        <FormCampaign
-                          visible={visible}
-                          onCreate={onCreate}
-                          onCancel={() => {
-                            setVisible(false);
-                          }}
-                        />
-                    </div>
-                </Content>
-            </Layout>
+            </div>
+          </Header>
+          <Content>
+            <h3>Таблица c NCahoots Campaigns</h3>
+            <TableNCahootsCampaigns data={data}/>
+            <Button
+              type="default"
+              onClick={() => {
+                setVisible(true);
+              }}
+            >
+              Add a Campaign
+            </Button>
+            <FormCampaign
+              visible={visible}
+              onCreate={onCreate}
+              onCancel={() => {
+                setVisible(false);
+              }}
+            />
+          </Content>
         </Layout>
+      </Layout>
     )
 }
 

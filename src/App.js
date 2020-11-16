@@ -11,8 +11,10 @@ import QuizzesPage    from './pages/Quizzes'
 import UsersPage      from './pages/Users'
 import Login          from '../src/components/auth/Login'
 import Register       from '../src/components/auth/Register'
+import ForgetPassword from '../src/components/auth/ForgetPassword'
 
-const { Header, Footer, Content } = Layout
+
+const { Header, Content } = Layout
 
 // Навигация & структура базовой страницы
 function App() {
@@ -24,7 +26,7 @@ function App() {
     <Router>
       <Header><Navigation/></Header>
       <Content>
-        <div style={{minHeight: '85vh'}}>
+        <div >
           <hr/>
           <Switch>
             <Route path="/campaings" component={CampaingsPage} />
@@ -33,10 +35,8 @@ function App() {
             <Route path="/users"     component={UsersPage} />
             <Route path="/login"     component={Login} />
             <Route path="/register"  component={Register} />
+            <Route path="/forgetpassword"   component={ForgetPassword} />
 
-            <Route exact path="/">
-              {loggedIn ? <Redirect to="/campaings" /> : <Redirect to="/login" /> }
-            </Route>
             <Route>
               {loggedIn ? <Redirect to="/campaings" /> : <Redirect to="/login" /> }
             </Route>

@@ -9,8 +9,8 @@ import CampaingsPage  from './pages/Campaigns'
 import OrdersPage     from './pages/Orders'
 import QuizzesPage    from './pages/Quizzes'
 import UsersPage      from './pages/Users'
-import Login          from '../src/components/auth/Login'
-import Register       from '../src/components/auth/Register'
+import Login          from '../src/components/auth/login'
+import Register       from '../src/components/auth/register'
 
 const { Header, Footer, Content } = Layout
 

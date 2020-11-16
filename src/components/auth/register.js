@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Form, Input, Button, Checkbox } from 'antd';
+// import PropTypes from 'prop-types';
+import { Form, Input, Button } from 'antd';
 import { UserOutlined, LockOutlined, ArrowLeftOutlined, MailOutlined } from '@ant-design/icons';
 import './auth.style.css'
 

@@ -1,9 +1,9 @@
-import React, { useCallback, useState } from 'react'
+import React, { useState } from 'react'
 import TableNCahootsCampaigns  from '../components/campaigns/TableCampaigns'
 import FormCampaign from '../components/campaigns/FormCampaign'
 import { Layout, Button } from 'antd'
 
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 const { Header, Sider, Content } = Layout
 

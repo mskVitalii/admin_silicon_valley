@@ -3,7 +3,7 @@ import TableNCahootsCampaigns  from '../components/campaigns/TableCampaigns'
 import FormOrders from '../components/orders/FormOrdersOrder'
 import { Layout, Button } from 'antd'
 
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 const { Header, Sider, Content } = Layout
 

@@ -19,14 +19,14 @@ const { Header, Content } = Layout
 // Навигация & структура базовой страницы
 function App() {
 
-  let loggedIn = true;
+  let loggedIn = false;
 
   return (
   <Layout>
     <Router>
       <Header><Navigation/></Header>
       <Content>
-        <div >
+        <div>
           <hr/>
           <Switch>
             <Route path="/campaings" component={CampaingsPage} />

@@ -4,6 +4,9 @@ import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined, ArrowLeftOutlined, MailOutlined } from '@ant-design/icons';
 import './auth.style.css'
 
+import { NavLink } from 'react-router-dom';
+
+
 const Register = () => {
     
     const onFinish = (values) => {
@@ -20,9 +23,9 @@ const Register = () => {
       onFinish={onFinish}
     >
       <Form.Item>
-        <a href="/">
+        <NavLink to="/">
           <ArrowLeftOutlined /> Back
-        </a>
+        </NavLink>
       </Form.Item>
    
       <Form.Item

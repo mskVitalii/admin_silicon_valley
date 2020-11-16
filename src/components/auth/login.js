@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
+import { NavLink } from 'react-router-dom';
+
 import './auth.style.css'
 
 const Login = () => {
@@ -50,9 +52,11 @@ const Login = () => {
             <Checkbox>Remember me</Checkbox>
           </Form.Item>
   
-          <a className="login-form-forgot" href="/forgetpassword">
-            Forgot password
-          </a>
+          <NavLink to="/forgetpassword">
+            <span className="login-form-forgot">
+              Forgot password
+            </span>
+          </NavLink>
         </Form.Item>
   
         <Form.Item>

@@ -27,7 +27,7 @@ function App() {
       <Header><Navigation/></Header>
       <Content>
         <div>
-          <hr/>
+          {/* <hr/> */}
           <Switch>
             <Route path="/campaings" component={CampaingsPage} />
             <Route path="/orders"    component={OrdersPage} />
@@ -41,7 +41,7 @@ function App() {
               {loggedIn ? <Redirect to="/campaings" /> : <Redirect to="/login" /> }
             </Route>
           </Switch>
-          <hr/>
+          {/* <hr/> */}
           </div>
       </Content>
     </Router>

@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
-import TableNCahootsCampaigns  from '../components/campaigns/TableCampaigns'
-import FormCampaign from '../components/campaigns/FormCampaign'
 import { Layout, Button } from 'antd'
+
+import TableNCahootsCampaigns  from '../components/campaigns/TableCampaigns'
+import FormCampaign            from '../components/campaigns/FormCampaign'
+import ChartsCampaigns         from '../components/campaigns/ChartsCampaigns'
+import ChartsCampaignsFunel    from '../components/campaigns/ChartsCampaignsFunel'
+
 
 // import PropTypes from 'prop-types'
 
@@ -63,11 +67,28 @@ const CampaingsPage = () => {
 
     return (
         <Layout>
-            <Sider>Либо можно сделать статистику здесь</Sider>
+            <Sider style={{height: '100%'}}>
+              Либо можно сделать статистику здесь
+              <div style={{height: '80%', paddingBottom: '1rem', paddingTop: '0.25rem'}}>
+                <ChartsCampaigns/>
+              </div>
+              <div style={{height: '40%', paddingBottom: '1rem', paddingTop: '0.25rem'}}>
+                  <ChartsCampaignsFunel/>
+              </div>
+            </Sider>
             <Layout>
-                <Header>Статистика</Header>
+                <Header style={{height: '45vh'}}>
+                  <h3 style={{lineHeight: '5vh'}}>Статистика</h3>
+                    <div style={{display: 'flex'}}>
+                    <div style={{height: '35vh', width: '50%', marginRight: 'auto'}}>
+                      <ChartsCampaigns/>
+                    </div>
+                    <div style={{height: '35vh', width: '50%', float: "right"}}>
+                      <ChartsCampaignsFunel/>
+                    </div>
+                    </div>
+                </Header>
                 <Content>
-                    таблица с NCahoots Campaigns
                     <TableNCahootsCampaigns data={data}/>
                     <div>
                         <Button

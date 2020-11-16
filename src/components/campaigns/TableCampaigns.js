@@ -33,14 +33,12 @@ function NCahootsCampaignsTable({data}) {
         onFilter: (value, record) => record.name.indexOf(value) === 0,
         sorter: (a, b) => a.name.length - b.name.length,
         sortDirections: ['descend'],
-        },
-        {
+        }, {
             title: 'Age',
             dataIndex: 'age',
             defaultSortOrder: 'descend',
             sorter: (a, b) => a.age - b.age,
-        },
-        {
+        }, {
             title: 'Address',
             dataIndex: 'address',
             filters: [
@@ -59,16 +57,15 @@ function NCahootsCampaignsTable({data}) {
         },
     ];
       
-
-      
     function onChange(pagination, filters, sorter, extra) {
         console.log('params', pagination, filters, sorter, extra);
     }
     
     return (
-        <div>
-    <h3>Таблица</h3>
-    <Table columns={columns} dataSource={data} onChange={onChange} /></div>)
+    <div>
+        <h3>Таблица с NCahoots Campaigns</h3>
+        <Table columns={columns} dataSource={data} onChange={onChange} />
+    </div>)
 }
 
 NCahootsCampaignsTable.propTypes = {}

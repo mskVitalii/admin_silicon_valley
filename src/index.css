@@ -25,7 +25,7 @@ hr {
   border: #00214d 3px dashed;
   padding: 1rem;
   margin-left: 0.5rem;
-  background: #ff5470;
+  background: white;
 }
 [data-theme="dark"] .ant-layout-sider {
   background: #3499ec;

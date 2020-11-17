@@ -14,7 +14,9 @@ import StatisticChart from "../components/campaigns/StatisticChart";
 const { Header, Sider, Content } = Layout;
 
 const CampaingsPage = () => {
+
   let [height, setHeight] = React.useState(null)
+  let [visible, setVisible] = React.useState(false);
   return (
     <Layout className="layout-main">
       <Layout className="layout-chart">
@@ -27,6 +29,22 @@ const CampaingsPage = () => {
         <Header>Таблица с NCahoots Campaigns</Header>
         <Content>
           <TableNCahootsCampaigns />
+          <div>
+            <Button
+              type="default"
+              onClick={() => {
+                setVisible(true);
+              }}
+            >
+              Add Order
+            </Button>
+            <FormCampaign
+              visible={visible}
+              onCancel={() => {
+                setVisible(false);
+              }}
+            />
+          </div>
         </Content>
       </Layout>
     </Layout>

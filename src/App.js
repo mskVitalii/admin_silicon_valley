@@ -1,6 +1,6 @@
-import React from 'react'
-import { Layout } from 'antd'
-import './index.css'
+import React from "react";
+import { Layout } from "antd";
+import "./index.css";
 
 import { Redirect, Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import Navigation     from './components/Navigation.component'
@@ -48,4 +48,4 @@ function App() {
   </Layout>)
 }
 
-export default App
+export default App;

@@ -1,0 +1,13 @@
+.layout-main{
+    background-color: #fff;
+}
+.layout-chart{
+    margin-bottom: 30px;
+}
+.layout-table::before{
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    box-shadow: 0 0px 20px 2px grey;
+}

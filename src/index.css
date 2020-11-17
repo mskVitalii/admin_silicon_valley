@@ -24,6 +24,8 @@ hr {
   color: #fff;
   border: #00214d 3px dashed;
   padding: 1rem;
+  /* margin-left: 0.5rem;
+  background: white; */
   background: #232946;
   /* max-width: 25% !important; */
   min-width: 25% !important;

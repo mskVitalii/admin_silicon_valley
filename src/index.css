@@ -24,8 +24,14 @@ hr {
   color: #fff;
   border: #00214d 3px dashed;
   padding: 1rem;
-  margin-left: 0.5rem;
-  background: white;
+  /* margin-left: 0.5rem;
+  background: white; */
+  background: #232946;
+  /* max-width: 25% !important; */
+  min-width: 25% !important;
+  width: 25% !important;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
 }
 [data-theme="dark"] .ant-layout-sider {
   background: #3499ec;
@@ -33,7 +39,7 @@ hr {
 .ant-layout-content {
   color: #00214d;
   background: #fffffe;
-  padding: 1rem;
+  padding: 1rem 1rem;
 
 }
 [data-theme="dark"] .ant-layout-content {

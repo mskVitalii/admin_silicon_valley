@@ -1,29 +1,94 @@
-import React from 'react'
-import TableNCahootsCampaigns  from '../components/campaigns/TableCampaigns'
-import { Layout } from 'antd'
+import React, {useState} from 'react'
+import { Layout, Button, Tabs } from 'antd'
 
-import PropTypes from 'prop-types'
+import TableNCahootsCampaigns   from '../components/campaigns/TableCampaigns'
+import FormUsers                from '../components/users/FormUser'
+
+
+// import PropTypes from 'prop-types'
 
 const { Header, Sider, Content } = Layout
+const { TabPane } = Tabs;
 
 
 const UsersPage = () => {
-    console.log('UsersPage')
+
+    const [visible, setVisible] = useState(false);
+    const initialData = [
+        {
+            key: '1',
+            name: 'John Brown',
+            age: 32,
+            address: 'New York No. 1 Lake Park',
+        }, {
+            key: '2',
+            name: 'Jim Green',
+            age: 42,
+            address: 'London No. 1 Lake Park',
+        }, {
+            key: '3',
+            name: 'Joe Black',
+            age: 32,
+            address: 'Sidney No. 1 Lake Park',
+        }, {
+            key: '4',
+            name: 'Jim Red',
+            age: 32,
+            address: 'London No. 2 Lake Park',
+        },
+    ];
+  
+    const [data, setData] = useState(initialData);
+  
+    const onCreate = (values) => {
+        setData(data.concat({
+            name: values.name,
+            age: values.age,
+            address: values.address
+          }));
+        setVisible(false);
+      };
 
     return (
-    <div>
-        <Layout>
-            <Sider>Либо можно сделать статистику здесь</Sider>
-            <Layout>
-                <Header>Статистика</Header>
-                <Content>
-                    таблица с пользователями
-                    <TableNCahootsCampaigns/>
-                </Content>
-            </Layout>
-        </Layout>
-
-    </div>
+    <Tabs defaultActiveKey="1" size={'large'} style={{ marginBottom: 32 }}>
+      <TabPane tab="Customers" key="1">
+        <TableNCahootsCampaigns/>
+            <Button
+              type="default"
+              onClick={() => {
+                setVisible(true);
+              }}
+            >
+              Add User
+            </Button>
+            <FormUsers
+              visible={visible}
+              onCreate={onCreate}
+              onCancel={() => {
+                setVisible(false);
+              }}
+            />
+      </TabPane>
+      <TabPane tab="Admins" key="2">
+      <h3>Пользователи с правами редактирования и удаления данных</h3>
+      <TableNCahootsCampaigns/>
+            <Button
+              type="default"
+              onClick={() => {
+                setVisible(true);
+              }}
+            >
+              Add User
+            </Button>
+            <FormUsers
+              visible={visible}
+              onCreate={onCreate}
+              onCancel={() => {
+                setVisible(false);
+              }}
+            />
+      </TabPane>
+    </Tabs>
 )}
 
 UsersPage.propTypes = {}

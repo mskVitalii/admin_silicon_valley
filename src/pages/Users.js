@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
 import { Layout, Button, Tabs } from 'antd'
 
-import TableNCahootsCampaigns   from '../components/campaigns/TableCampaigns'
 import FormUsers                from '../components/users/FormUser'
+import Table                   from '../components/Table.component'
 
 
 // import PropTypes from 'prop-types'
@@ -12,6 +12,126 @@ const { TabPane } = Tabs;
 
 
 const UsersPage = () => {
+
+  const columns = [
+    {
+      title: "Name",
+      dataIndex: "name",
+      filters: [
+        {
+          text: "Joe",
+          value: "Joe",
+        },
+        {
+          text: "Jim",
+          value: "Jim",
+        },
+        {
+          text: "Submenu",
+          value: "Submenu",
+          children: [
+            {
+              text: "Green",
+              value: "Green",
+            },
+            {
+              text: "Black",
+              value: "Black",
+            },
+          ],
+        },
+      ],
+      // specify the condition of filtering result
+      // here is that finding the name started with `value`
+      onFilter: (value, record) => record.name.indexOf(value) === 0,
+      sorter: (a, b) => a.name.length - b.name.length,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Address",
+      dataIndex: "address",
+      filters: [
+        {
+          text: "London",
+          value: "London",
+        },
+        {
+          text: "New York",
+          value: "New York",
+        },
+      ],
+      filterMultiple: false,
+      onFilter: (value, record) => record.address.indexOf(value) === 0,
+      sorter: (a, b) => a.address.length - b.address.length,
+      sortDirections: ["descend", "ascend"],
+    },    
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    }
+  ];
 
     const [visible, setVisible] = useState(false);
     const initialData = [
@@ -52,7 +172,7 @@ const UsersPage = () => {
     return (
     <Tabs defaultActiveKey="1" size={'large'} style={{ marginBottom: 32 }}>
       <TabPane tab="Customers" key="1">
-        <TableNCahootsCampaigns/>
+        <Table columns={columns} data={data}/>
             <Button
               type="default"
               onClick={() => {
@@ -71,7 +191,7 @@ const UsersPage = () => {
       </TabPane>
       <TabPane tab="Admins" key="2">
       <h3>Пользователи с правами редактирования и удаления данных</h3>
-      <TableNCahootsCampaigns/>
+      <Table columns={columns} data={data}/>
             <Button
               type="default"
               onClick={() => {

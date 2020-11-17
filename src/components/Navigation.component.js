@@ -11,7 +11,6 @@ const Navigation = () => (
     <PageHeader
       className="page-header"
       ghost={true}
-      title="NCahoots"
       extra={[
         <NavLink key="1" activeClassName="active" to="/campaings">
           <span>NCahoots Campaigns</span>

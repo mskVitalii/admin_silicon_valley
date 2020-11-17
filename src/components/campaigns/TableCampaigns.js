@@ -60,6 +60,66 @@ function NCahootsCampaignsTable() {
       onFilter: (value, record) => record.address.indexOf(value) === 0,
       sorter: (a, b) => a.address.length - b.address.length,
       sortDirections: ["descend", "ascend"],
+    },    
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Employees",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
     },
   ];
 

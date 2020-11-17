@@ -13,21 +13,21 @@ const Navigation = () => (
       ghost={true}
       title="NCahoots"
       extra={[
-        <Button key="1">
-          <NavLink activeClassName="active" to="/campaings">NCahoots Campaigns </NavLink>
-        </Button>,
-        <Button key="2">
-          <NavLink activeClassName="active" to="/orders">Orders </NavLink>
-        </Button>,
-        <Button key="3">
-          <NavLink activeClassName="active" to="/quizzes">Quizzes </NavLink>
-        </Button>,
-        <Button key="4">
-          <NavLink activeClassName="active" to="/users">Users </NavLink>
-        </Button>,
-        <Button key="5">
-          <NavLink activeClassName="active" to="/login">Login </NavLink>
-        </Button>,
+        <NavLink key="1" activeClassName="active" to="/campaings">
+          <span>NCahoots Campaigns</span>
+        </NavLink>,
+        <NavLink key="2" activeClassName="active" to="/orders">
+          <span>Orders</span>
+        </NavLink>,
+        <NavLink key="3" activeClassName="active" to="/quizzes">
+          <span>Quizzes</span>
+        </NavLink>,
+        <NavLink key="4" activeClassName="active" to="/users">
+          <span>Users</span>
+        </NavLink>,
+        <NavLink key="5" activeClassName="active" to="/login">
+          <span>Login</span>
+        </NavLink>,
       ]}
     ></PageHeader>
   </nav>

@@ -15,21 +15,23 @@ span.ant-page-header-heading-extra{
     height: 100%;
 }
 
-span.ant-page-header-heading-extra button{
+span.ant-page-header-heading-extra a {
     height: 100%;
     margin-left: 0;
     border: none;
-    background-color: #2f4f6f;
+    background-color: #f2f4f6;
 }
 
-button a {
-    display: block;
+.ant-btn {
+    height: 100%;
+    margin-left: 0;
+    border: none;
+    background-color: #f2f4f6;
 }
 
 .active {
     height: 100%;
-    width: 100%;
     margin-left: 0;
     border: none;
-    background:#f2f4f6;
+    background-color: red;
 }

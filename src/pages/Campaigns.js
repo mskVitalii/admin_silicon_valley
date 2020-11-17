@@ -19,12 +19,6 @@ const CampaingsPage = () => {
   let [visible, setVisible] = React.useState(false);
   return (
     <Layout className="layout-main">
-      {/* <Sider width="30vw" height="100%"> */}
-      {/* <Card
-          title="Статистика"
-          style={{ width: "100%", height: "100%" }}
-          className="chart-card"
-        > */}
       <Layout className="layout-chart">
         <Content>
           <h2>Статистика</h2>

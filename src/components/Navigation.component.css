@@ -14,11 +14,22 @@ span.ant-page-header-heading-extra{
     margin: 0;
     height: 100%;
 }
+
 span.ant-page-header-heading-extra button{
     height: 100%;
     margin-left: 0;
     border: none;
+    background-color: #2f4f6f;
 }
-span.ant-page-header-heading-extra button:not(:last-child){
-    border-right: 2px solid lightgrey;
+
+button a {
+    display: block;
+}
+
+.active {
+    height: 100%;
+    width: 100%;
+    margin-left: 0;
+    border: none;
+    background:#f2f4f6;
 }

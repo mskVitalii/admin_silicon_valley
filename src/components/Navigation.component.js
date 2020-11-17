@@ -14,19 +14,19 @@ const Navigation = () => (
       title="NCahoots"
       extra={[
         <Button key="1">
-          <NavLink to="/campaings">NCahoots Campaigns </NavLink>
+          <NavLink activeClassName="active" to="/campaings">NCahoots Campaigns </NavLink>
         </Button>,
         <Button key="2">
-          <NavLink to="/orders">Orders </NavLink>
+          <NavLink activeClassName="active" to="/orders">Orders </NavLink>
         </Button>,
         <Button key="3">
-          <NavLink to="/quizzes">Quizzes </NavLink>
+          <NavLink activeClassName="active" to="/quizzes">Quizzes </NavLink>
         </Button>,
         <Button key="4">
-          <NavLink to="/users">Users </NavLink>
+          <NavLink activeClassName="active" to="/users">Users </NavLink>
         </Button>,
         <Button key="5">
-          <NavLink to="/login">Login </NavLink>
+          <NavLink activeClassName="active" to="/login">Login </NavLink>
         </Button>,
       ]}
     ></PageHeader>

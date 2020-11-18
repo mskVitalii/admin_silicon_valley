@@ -190,7 +190,7 @@ const UsersPage = () => {
         />
       </TabPane>
       <TabPane tab="Admins" key="2">
-        <h3>Пользователи с правами редактирования и удаления данных</h3>
+        <h3>Users with administrative rights</h3>
         <Table columns={columns} data={data} />
         <Button
           type="default"

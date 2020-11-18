@@ -5,7 +5,7 @@ import ChartStatistic from '../../campaigns/ChartStatistic'
 import FormOrders from "../../orders/FormOrdersOrder";
 import Table from '../../Table.component'
 
-const {Panel} = Collapse
+const { Panel } = Collapse
 
 function PicturesTab() {
 
@@ -174,9 +174,9 @@ function PicturesTab() {
   return (
     <Layout className="layout-main">
       <Collapse style={{ backgroundColor: '#fffffe', paddingBottom: '2rem' }} bordered={false} defaultActiveKey={['0']}>
-        <Panel header="Статистика" key="1">
+        <Panel header="Statistic" key="1">
           <div className="layout-chart">
-            <h2>Статистика</h2>
+            <h2>Statistic</h2>
             <ChartStatistic />
           </div>
         </Panel>
@@ -184,7 +184,7 @@ function PicturesTab() {
 
       <Layout>
         <Content>
-          <h2>Таблица с заказами</h2>
+          <h2>Order's table</h2>
           <Table columns={columns} data={data} />
           <div>
             <Button

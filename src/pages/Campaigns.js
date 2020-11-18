@@ -6,7 +6,7 @@ import FormCampaign from '../components/campaigns/FormCampaign'
 import ChartsCampaigns from '../components/campaigns/ChartsCampaigns'
 import ChartsCampaignsFunel from '../components/campaigns/ChartsCampaignsFunel'
 import Table from '../components/Table.component'
-import{ DownloadOutlined,SearchOutlined,PlusSquareOutlined,DeleteOutlined} from '@ant-design/icons';
+import { DownloadOutlined, SearchOutlined, PlusSquareOutlined, DeleteOutlined } from '@ant-design/icons';
 
 import "./styles/Campaigns.css";
 
@@ -210,9 +210,9 @@ const CampaingsPage = () => {
   return (
     <Layout className="layout-main">
       <Collapse style={{ backgroundColor: '#fffffe', paddingBottom: '2rem' }} bordered={false} defaultActiveKey={['0']}>
-        <Panel header="Статистика" key="1">
+        <Panel header="Statistic" key="1">
           <div className="layout-chart">
-            <h2>Статистика</h2>
+            <h2>Statistic</h2>
             <ChartStatistic />
           </div>
         </Panel>
@@ -220,26 +220,26 @@ const CampaingsPage = () => {
 
 
       <div>
-        <h2 style={{ marginLeft: '2rem' }}>Компании</h2>
+        <h2 style={{ marginLeft: '2rem' }}>Campaigns</h2>
         <div>
           <Button
             style={{ marginLeft: '1rem' }}
             type="primary" ghost
-            icon = {<PlusSquareOutlined />}
+            icon={<PlusSquareOutlined />}
             onClick={() => { setVisible(true); }}>
-            Добавить компанию
+            Add campaigns
           </Button>
           <Button
             style={{ margin: '1rem 1rem' }}
-            icon = {<DeleteOutlined />}
+            icon={<DeleteOutlined />}
             danger={true} disabled={true}
             onClick={() => { setVisible(true); }}>
-            Удалить выделенное
+            Delete highlighted
           </Button>
           <Button default={true} disabled={true}
-          icon = {<DownloadOutlined />}
+            icon={<DownloadOutlined />}
           >
-            Скачать выделенные
+            Download highlighted
           </Button>
           <FormCampaign
             visible={visible}

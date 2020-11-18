@@ -4,7 +4,7 @@ import { Layout, Button, Collapse } from "antd";
 import Table from '../../Table.component'
 import ChartStatistic from '../../campaigns/ChartStatistic'
 
-const {Panel} = Collapse
+const { Panel } = Collapse
 
 function FinancesTab() {
 
@@ -172,9 +172,9 @@ function FinancesTab() {
   return (
     <Layout className="layout-main">
       <Collapse style={{ backgroundColor: '#fffffe', paddingBottom: '2rem' }} bordered={false} defaultActiveKey={['0']}>
-        <Panel header="Статистика" key="1">
+        <Panel header="Statistic" key="1">
           <div className="layout-chart">
-            <h2>Статистика</h2>
+            <h2>Statistic</h2>
             <ChartStatistic />
           </div>
         </Panel>
@@ -182,7 +182,7 @@ function FinancesTab() {
 
       <Layout>
         <Content>
-          <h2 style={{ padding: '1rem', paddingLeft: '2rem' }}>Таблица с заказами</h2>
+          <h2 style={{ padding: '1rem', paddingLeft: '2rem' }}>Order's table</h2>
           <Table columns={columns} data={data} />
           <div>
             <Button

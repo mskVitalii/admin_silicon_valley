@@ -167,11 +167,11 @@ const QuizzesPage = () => {
 
   return (
     <Layout>
-      <Sider>Либо можно сделать статистику здесь</Sider>
+      <Sider>Place for statistic</Sider>
       <Layout>
-        <Header>Статистика</Header>
+        <Header>Statistic</Header>
         <Content>
-          <h3>Таблица с опросами</h3>
+          <h3>Quizzes table</h3>
           <Table columns={columns} data={data} />
           <div>
             <Button

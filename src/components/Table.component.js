@@ -10,7 +10,6 @@ function TableComponent({columns, data}) {
 
   return (
     <div>
-      <h3>Таблица</h3>
       <Table
         style={{overflowX: 'scroll'}}
         columns={columns}

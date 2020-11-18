@@ -1,12 +1,11 @@
 import React                    from "react";
-import { Layout, Tabs }         from "antd";
+import { Tabs }         from "antd";
 import FinancesTab              from '../components/orders/finances/FinancesTab'
 import ShoppingTab              from '../components/orders/shoppingLists/ShoppingTab'
 import WishesTab                from '../components/orders/wishes/WishesTab'
 import PicturesTab              from '../components/orders/pictures/PicturesTab'
 import "./styles/Orders.css";
 
-const { Header, Sider, Content } = Layout;
 const { TabPane } = Tabs;
 
 const OrdersPage = () => {

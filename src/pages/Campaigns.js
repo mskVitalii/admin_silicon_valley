@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 // import PropTypes from 'prop-types'
-import { Layout, Button } from 'antd'
+import { Layout, Button, Divider } from 'antd'
 import FormCampaign            from '../components/campaigns/FormCampaign'
 import ChartsCampaigns         from '../components/campaigns/ChartsCampaigns'
 import ChartsCampaignsFunel    from '../components/campaigns/ChartsCampaignsFunel'
@@ -174,13 +174,13 @@ const CampaingsPage = () => {
       <Layout className="layout-chart">
         <Content>
           <h2>Статистика</h2>
-
           <StatisticChart />
         </Content>
       </Layout>
-      <Layout className="layout-table">
-        <Header>Таблица с NCahoots Campaigns</Header>
+      <Divider />
+      <Layout>
         <Content>
+          <h2>Компании</h2>
           <Table columns={columns} data={data}/>
           <div>
             <Button

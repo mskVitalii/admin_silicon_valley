@@ -127,8 +127,6 @@ const QuizzesPage = () => {
       sorter: (a, b) => a.age - b.age,
     }
   ];
-
-
     const [visible, setVisible] = useState(false);
     const initialData = [
         {

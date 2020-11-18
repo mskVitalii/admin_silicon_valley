@@ -177,10 +177,9 @@ function ShoppingTab() {
       </Content>
     </Layout>
 
-    <Layout className="layout-table">
-      <Header>Таблица с NCahoots Campaigns</Header>
+    <Layout>
       <Content>
-        <h3>Таблица с заказами</h3>
+        <h2>Таблица с заказами</h2>
         <Table columns={columns} data={data} />
         <div>
           <Button

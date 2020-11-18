@@ -4,6 +4,7 @@
 .layout-chart{
     margin-bottom: 60px;
     height: 50vh;
+    padding: 1rem;
 }
 .layout-table::before{
     content: '';

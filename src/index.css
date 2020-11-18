@@ -15,10 +15,6 @@ hr {
   color: #00214d;
   background:#f2f4f6;
 }
-[data-theme="dark"] .ant-layout-header,
-[data-theme="dark"] .ant-layout-footer {
-  background: #fffffe;
-}
 
 .ant-layout-sider {
   color: #fff;
@@ -33,14 +29,20 @@ hr {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
 }
-[data-theme="dark"] .ant-layout-sider {
-  background: #3499ec;
-}
+
 .ant-layout-content {
   color: #00214d;
   background: #fffffe;
-  padding: 1rem 1rem;
+  padding: 1rem 0rem;
+}
 
+
+[data-theme="dark"] .ant-layout-header,
+[data-theme="dark"] .ant-layout-footer {
+  background: #fffffe;
+}
+[data-theme="dark"] .ant-layout-sider {
+  background: #3499ec;
 }
 [data-theme="dark"] .ant-layout-content {
   background: #107bcb;

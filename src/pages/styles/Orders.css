@@ -1,9 +1,12 @@
 .layout-main{
-    background-color: #fff;
+    background-color: #fffffe;
 }
 .layout-chart{
     margin-bottom: 60px;
     height: 50vh;
+    background-color: #fffffe;
+    padding: 2rem;
+    padding-top: 0rem;
 }
 .layout-table::before{
     content: '';

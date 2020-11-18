@@ -12,35 +12,22 @@ const { TabPane } = Tabs;
 
 const OrdersPage = () => {
   return (
-    // <Layout className="layout-main">
-    //   <Layout className="layout-chart">
-    //     <Content>
-    //       <h2>Статистика</h2>
-    //       <ChartStatistic />
-    //     </Content>
-    //   </Layout>
-    //   <Layout className="layout-table">
-    //     <Header>Таблица с NCahoots Campaigns</Header>
-    //     <Content>
-    //       <TableNCahootsCampaigns />
-    //     </Content>
-    //   </Layout>
-    // </Layout>
-
-    <Tabs defaultActiveKey="1" size={"large"} style={{ marginBottom: 32 }}>
-      <TabPane tab="Finances" key="1">
-        <FinancesTab />
-      </TabPane>
-      <TabPane tab="Shopping Lists" key="2">
-        <ShoppingTab />
-      </TabPane>
-      <TabPane tab="Wishes" key="3">
-        <WishesTab />
-      </TabPane>
-      <TabPane tab="Pictures" key="4">
-        <PicturesTab />
-      </TabPane>
-    </Tabs>
+    <div>
+      <Tabs defaultActiveKey="1" size={"large"} style={{ marginBottom: 32 }}>
+        <TabPane tab="Finances" key="1">
+          <FinancesTab />
+        </TabPane>
+        <TabPane tab="Shopping Lists" key="2">
+          <ShoppingTab />
+        </TabPane>
+        <TabPane tab="Wishes" key="3">
+          <WishesTab />
+        </TabPane>
+        <TabPane tab="Pictures" key="4">
+          <PicturesTab />
+        </TabPane>
+      </Tabs>
+    </div>
   );
 };
 

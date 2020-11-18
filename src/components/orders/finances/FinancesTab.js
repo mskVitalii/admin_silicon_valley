@@ -178,7 +178,7 @@ function FinancesTab() {
 
       <Layout>
         <Content>
-          <h2>Таблица с заказами</h2>
+          <h2 style={{ padding: '1rem', paddingLeft: '2rem' }}>Таблица с заказами</h2>
           <Table columns={columns} data={data} />
           <div>
             <Button

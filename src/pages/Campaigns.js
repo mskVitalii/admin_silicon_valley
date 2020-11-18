@@ -1,22 +1,25 @@
 import React, { useState } from 'react'
+
 // import PropTypes from 'prop-types'
-import { Layout, Button, Divider } from 'antd'
+import { Layout, Button, Divider, Collapse } from 'antd'
 import FormCampaign from '../components/campaigns/FormCampaign'
 import ChartsCampaigns from '../components/campaigns/ChartsCampaigns'
 import ChartsCampaignsFunel from '../components/campaigns/ChartsCampaignsFunel'
 import Table from '../components/Table.component'
+import DownloadOutlined from '@ant-design/icons';
 
 import "./styles/Campaigns.css";
 
 import ChartStatistic from "../components/campaigns/ChartStatistic";
 
-const { Header, Sider, Content } = Layout;
+const { Content } = Layout;
+const { Panel } = Collapse;
 
 const CampaingsPage = () => {
 
   const columns = [
     {
-      title: "Name",
+      title: "ID",
       dataIndex: "name",
       filters: [
         {
@@ -47,22 +50,19 @@ const CampaingsPage = () => {
       onFilter: (value, record) => record.name.indexOf(value) === 0,
       sorter: (a, b) => a.name.length - b.name.length,
       sortDirections: ["descend", "ascend"],
-    },
-    {
-      title: "Employees",
+    }, {
+      title: "Title",
       dataIndex: "employees",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
-    },
-    {
+    }, {
       title: "Address",
       dataIndex: "address",
       filters: [
         {
           text: "London",
           value: "London",
-        },
-        {
+        }, {
           text: "New York",
           value: "New York",
         },
@@ -71,63 +71,73 @@ const CampaingsPage = () => {
       onFilter: (value, record) => record.address.indexOf(value) === 0,
       sorter: (a, b) => a.address.length - b.address.length,
       sortDirections: ["descend", "ascend"],
-    },
-    {
-      title: "Employees",
+    }, {
+      title: "Amount Raised",
       dataIndex: "employees",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
+    }, {
+      title: "Recipient Name",
       dataIndex: "employees",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
+    }, {
+      title: "Full Name",
       dataIndex: "employees",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
+    }, {
+      title: "Recipient Age",
       dataIndex: "employees",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
+    }, {
+      title: "Recipient Gender",
       dataIndex: "employees",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
+    }, {
+      title: "Occasion",
       dataIndex: "employees",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
+    }, {
+      title: "# of Participants",
       dataIndex: "employees",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
+    }, {
+      title: "Started Day",
       dataIndex: "employees",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
+    }, {
+      title: "End Day",
       dataIndex: "employees",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
+    }, {
+      title: "Duration",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    }, {
+      title: "# of Question Answered",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    }, {
+      title: "# Of pictures Uploaded",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    }, {
+      title: "# Of wishes Uploaded",
+      dataIndex: "employees",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    }, {
+      title: "View Details",
       dataIndex: "employees",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
@@ -141,23 +151,50 @@ const CampaingsPage = () => {
       employees: Math.round(Math.random() * 10000),
       address: "New York No. 1 Lake Park",
       description: "Details for 'Company name 1'",
-    },
-    {
+    }, {
       key: "2",
       name: "Company name 2",
       employees: Math.round(Math.random() * 10000),
       address: "London No. 1 Lake Park",
       description: "Details for 'Company name 2'",
-    },
-    {
+    }, {
       key: "3",
       name: "Company name 3",
       employees: Math.round(Math.random() * 10000),
       address: "Sidney No. 1 Lake Park",
       description: "Details for 'Company name 3'",
-    },
-    {
+    }, {
       key: "4",
+      name: "Company name 4",
+      employees: Math.round(Math.random() * 10000),
+      address: "London No. 2 Lake Park",
+      description: "Details for 'Company name 4'",
+    }, {
+      key: "5",
+      name: "Company name 4",
+      employees: Math.round(Math.random() * 10000),
+      address: "London No. 2 Lake Park",
+      description: "Details for 'Company name 4'",
+    }, {
+      key: "6",
+      name: "Company name 4",
+      employees: Math.round(Math.random() * 10000),
+      address: "London No. 2 Lake Park",
+      description: "Details for 'Company name 4'",
+    }, {
+      key: "7",
+      name: "Company name 4",
+      employees: Math.round(Math.random() * 10000),
+      address: "London No. 2 Lake Park",
+      description: "Details for 'Company name 4'",
+    }, {
+      key: "8",
+      name: "Company name 4",
+      employees: Math.round(Math.random() * 10000),
+      address: "London No. 2 Lake Park",
+      description: "Details for 'Company name 4'",
+    }, {
+      key: "9",
       name: "Company name 4",
       employees: Math.round(Math.random() * 10000),
       address: "London No. 2 Lake Park",
@@ -169,37 +206,45 @@ const CampaingsPage = () => {
 
   let [height, setHeight] = React.useState(null)
   let [visible, setVisible] = React.useState(false);
+
   return (
     <Layout className="layout-main">
-      <Layout className="layout-chart">
-        <Content>
-          <h2>Статистика</h2>
-          <ChartStatistic />
-        </Content>
-      </Layout>
-      <Divider />
-      <Layout>
-        <Content>
-          <h2>Компании</h2>
-          <Table columns={columns} data={data} />
-          <div>
-            <Button
-              type="default"
-              onClick={() => {
-                setVisible(true);
-              }}
-            >
-              Add Order
-            </Button>
-            <FormCampaign
-              visible={visible}
-              onCancel={() => {
-                setVisible(false);
-              }}
-            />
+      <Collapse style={{ backgroundColor: '#fffffe', paddingBottom: '2rem' }} bordered={false} defaultActiveKey={['1']}>
+        <Panel header="Статистика" key="1">
+          <div className="layout-chart">
+            <h2>Статистика</h2>
+            <ChartStatistic />
           </div>
-        </Content>
-      </Layout>
+        </Panel>
+      </Collapse>
+
+
+      <div>
+        <h2 style={{ marginLeft: '2rem' }}>Компании</h2>
+        <div>
+          <Button
+            style={{ marginLeft: '1rem' }}
+            primary={true}
+            onClick={() => { setVisible(true); }}>
+            Добавить компанию
+          </Button>
+          <Button
+            style={{ margin: '1rem 1rem' }}
+            danger={true} disabled={true}
+            onClick={() => { setVisible(true); }}>
+            Удалить выделенное
+          </Button>
+          <Button default={true} disabled={true}>
+            Скачать выделенные
+          </Button>
+          <FormCampaign
+            visible={visible}
+            onCancel={() => {
+              setVisible(false);
+            }} />
+        </div>
+        <Table columns={columns} data={data} />
+      </div>
     </Layout>
   );
 };

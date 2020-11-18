@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 import {Modal, Form, Input} from 'antd';
 
 const FormOrdersOrder = ({visible, onCreate, onCancel}) => {

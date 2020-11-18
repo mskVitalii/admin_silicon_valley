@@ -1,18 +1,10 @@
-import React, { useState } from 'react'
-// import PropTypes from 'prop-types'
-import { Layout, Button } from 'antd'
-import FormCampaign            from '../components/campaigns/FormCampaign'
-import ChartsCampaigns         from '../components/campaigns/ChartsCampaigns'
-import ChartsCampaignsFunel    from '../components/campaigns/ChartsCampaignsFunel'
-import Table                   from '../components/Table.component'
+import React, { useState }      from "react";
+import FormOrders               from "../../orders/FormOrdersOrder";
+import { Layout, Button }       from "antd";
+import Table                    from '../../Table.component'
+import StatisticChart           from '../../campaigns/StatisticChart'
 
-import "./styles/Campaigns.css";
-
-import StatisticChart from "../components/campaigns/StatisticChart";
-
-const { Header, Sider, Content } = Layout;
-
-const CampaingsPage = () => {
+function PicturesTab() {
 
   const columns = [
     {
@@ -134,76 +126,85 @@ const CampaingsPage = () => {
     }
   ];
 
-  const data = [
+  const { Header, Sider, Content } = Layout;
+  const [visible, setVisible] = useState(false);
+
+  const initialData = [
     {
       key: "1",
-      name: "Company name 1",
-      employees: Math.round(Math.random() * 10000),
+      name: "John Brown",
+      age: 32,
       address: "New York No. 1 Lake Park",
-      description: "Details for 'Company name 1'",
     },
     {
       key: "2",
-      name: "Company name 2",
-      employees: Math.round(Math.random() * 10000),
+      name: "Jim Green",
+      age: 42,
       address: "London No. 1 Lake Park",
-      description: "Details for 'Company name 2'",
     },
     {
       key: "3",
-      name: "Company name 3",
-      employees: Math.round(Math.random() * 10000),
+      name: "Joe Black",
+      age: 32,
       address: "Sidney No. 1 Lake Park",
-      description: "Details for 'Company name 3'",
     },
     {
       key: "4",
-      name: "Company name 4",
-      employees: Math.round(Math.random() * 10000),
+      name: "Jim Red",
+      age: 32,
       address: "London No. 2 Lake Park",
-      description: "Details for 'Company name 4'",
     },
   ];
+  const [data, setData] = useState(initialData);
 
+  const onCreate = (values) => {
+    setData(
+      data.concat({
+        name: values.name,
+        age: values.age,
+        address: values.address,
+      })
+    );
+    setVisible(false);
+  };
 
-
-  let [height, setHeight] = React.useState(null)
-  let [visible, setVisible] = React.useState(false);
   return (
     <Layout className="layout-main">
-      <Layout className="layout-chart">
-        <Content>
-          <h2>Статистика</h2>
-
-          <StatisticChart />
-        </Content>
-      </Layout>
-      <Layout className="layout-table">
-        <Header>Таблица с NCahoots Campaigns</Header>
-        <Content>
-          <Table columns={columns} data={data}/>
-          <div>
-            <Button
-              type="default"
-              onClick={() => {
-                setVisible(true);
-              }}
-            >
-              Add Order
-            </Button>
-            <FormCampaign
-              visible={visible}
-              onCancel={() => {
-                setVisible(false);
-              }}
-            />
-          </div>
-        </Content>
-      </Layout>
+    <Layout className="layout-chart">
+      <Content>
+        <h2>Статистика</h2>
+        <StatisticChart />
+      </Content>
     </Layout>
-  );
-};
 
-CampaingsPage.propTypes = {};
+    <Layout className="layout-table">
+      <Header>Таблица с NCahoots Campaigns</Header>
+      <Content>
+        <h3>Таблица с заказами</h3>
+        <Table columns={columns} data={data} />
+        <div>
+          <Button
+            type="default"
+            onClick={() => {
+              setVisible(true);
+            }}
+          >
+            Add Order
+          </Button>
+          <FormOrders
+            visible={visible}
+            onCreate={onCreate}
+            onCancel={() => {
+              setVisible(false);
+            }}
+          />
+        </div>
+      </Content>
+    </Layout>
+  </Layout>
+  )
+}
 
-export default CampaingsPage;
+PicturesTab.propTypes = {};
+
+export default PicturesTab;

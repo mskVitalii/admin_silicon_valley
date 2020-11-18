@@ -6,7 +6,7 @@ import FormCampaign from '../components/campaigns/FormCampaign'
 import ChartsCampaigns from '../components/campaigns/ChartsCampaigns'
 import ChartsCampaignsFunel from '../components/campaigns/ChartsCampaignsFunel'
 import Table from '../components/Table.component'
-import DownloadOutlined from '@ant-design/icons';
+import{ DownloadOutlined,SearchOutlined,PlusSquareOutlined,DeleteOutlined} from '@ant-design/icons';
 
 import "./styles/Campaigns.css";
 
@@ -209,7 +209,7 @@ const CampaingsPage = () => {
 
   return (
     <Layout className="layout-main">
-      <Collapse style={{ backgroundColor: '#fffffe', paddingBottom: '2rem' }} bordered={false} defaultActiveKey={['1']}>
+      <Collapse style={{ backgroundColor: '#fffffe', paddingBottom: '2rem' }} bordered={false} defaultActiveKey={['0']}>
         <Panel header="Статистика" key="1">
           <div className="layout-chart">
             <h2>Статистика</h2>
@@ -224,17 +224,21 @@ const CampaingsPage = () => {
         <div>
           <Button
             style={{ marginLeft: '1rem' }}
-            primary={true}
+            type="primary" ghost
+            icon = {<PlusSquareOutlined />}
             onClick={() => { setVisible(true); }}>
             Добавить компанию
           </Button>
           <Button
             style={{ margin: '1rem 1rem' }}
+            icon = {<DeleteOutlined />}
             danger={true} disabled={true}
             onClick={() => { setVisible(true); }}>
             Удалить выделенное
           </Button>
-          <Button default={true} disabled={true}>
+          <Button default={true} disabled={true}
+          icon = {<DownloadOutlined />}
+          >
             Скачать выделенные
           </Button>
           <FormCampaign

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { Layout, Button } from "antd";
+import { Layout, Button, Collapse } from "antd";
 
 import ChartStatistic from '../../campaigns/ChartStatistic'
 import FormOrders from "../../orders/FormOrdersOrder";
 import Table from '../../Table.component'
+
+const {Panel} = Collapse
 
 function ShoppingTab() {
 
@@ -171,12 +173,14 @@ function ShoppingTab() {
 
   return (
     <Layout className="layout-main">
-      <Layout className="layout-chart">
-        <Content>
-          <h2>Статистика</h2>
-          <ChartStatistic />
-        </Content>
-      </Layout>
+      <Collapse style={{ backgroundColor: '#fffffe', paddingBottom: '2rem' }} bordered={false} defaultActiveKey={['0']}>
+        <Panel header="Статистика" key="1">
+          <div className="layout-chart">
+            <h2>Статистика</h2>
+            <ChartStatistic />
+          </div>
+        </Panel>
+      </Collapse>
 
       <Layout>
         <Content>

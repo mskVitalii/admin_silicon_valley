@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import FormOrders from "../../orders/FormOrdersOrder";
-import { Layout, Button } from "antd";
+import { Layout, Button, Collapse } from "antd";
 import Table from '../../Table.component'
 import ChartStatistic from '../../campaigns/ChartStatistic'
+
+const {Panel} = Collapse
 
 function FinancesTab() {
 
@@ -169,12 +171,14 @@ function FinancesTab() {
   };
   return (
     <Layout className="layout-main">
-      <Layout className="layout-chart">
-        <Content>
-          <h2>Статистика</h2>
-          <ChartStatistic />
-        </Content>
-      </Layout>
+      <Collapse style={{ backgroundColor: '#fffffe', paddingBottom: '2rem' }} bordered={false} defaultActiveKey={['0']}>
+        <Panel header="Статистика" key="1">
+          <div className="layout-chart">
+            <h2>Статистика</h2>
+            <ChartStatistic />
+          </div>
+        </Panel>
+      </Collapse>
 
       <Layout>
         <Content>

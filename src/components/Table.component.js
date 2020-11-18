@@ -24,7 +24,7 @@ function TableComponent({ columns, data }) {
       />
 
       <Table
-        style={{ overflowX: 'scroll' }}
+        scroll={{ x: 'fit-content' }}
         columns={columns}
         dataSource={data}
         onChange={onChange}

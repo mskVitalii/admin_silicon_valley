@@ -19,15 +19,15 @@ export default class Server {
 
     componentDidMount() {
         fetch(peoples)
-        .then(res => {
-        if(res.status !== 200) {
-            console.log(res.status);
+            .then(res => {
+                if (res.status !== 200) {
+                    console.log(res.status);
 
-            return;
-        }
-        res.json().then(function(res) {
-            this.setState({data: res});
-        });
-        })
+                    return;
+                }
+                res.json().then(function (res) {
+                    this.setState({ data: res });
+                });
+            })
     }
 }

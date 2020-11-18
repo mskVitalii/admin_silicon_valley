@@ -22,30 +22,30 @@ function App() {
   let loggedIn = false;
 
   return (
-  <Layout>
-    <Router>
-      <Header><Navigation/></Header>
-      <Content>
-        <div>
-          {/* <hr/> */}
-          <Switch>
-            <Route path="/campaings" component={CampaingsPage} />
-            <Route path="/orders"    component={OrdersPage} />
-            <Route path="/quizzes"   component={QuizzesPage} />
-            <Route path="/users"     component={UsersPage} />
-            <Route path="/login"     component={Login} />
-            <Route path="/register"  component={Register} />
-            <Route path="/forgetpassword"   component={ForgetPassword} />
+    <Layout>
+      <Router>
+        <Header><Navigation /></Header>
+        <Content>
+          <div>
+            {/* <hr/> */}
+            <Switch>
+              <Route path="/campaings" component={CampaingsPage} />
+              <Route path="/orders" component={OrdersPage} />
+              <Route path="/quizzes" component={QuizzesPage} />
+              <Route path="/users" component={UsersPage} />
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
+              <Route path="/forgetpassword" component={ForgetPassword} />
 
-            <Route>
-              {loggedIn ? <Redirect to="/campaings" /> : <Redirect to="/login" /> }
-            </Route>
-          </Switch>
-          {/* <hr/> */}
+              <Route>
+                {loggedIn ? <Redirect to="/campaings" /> : <Redirect to="/login" />}
+              </Route>
+            </Switch>
+            {/* <hr/> */}
           </div>
-      </Content>
-    </Router>
-  </Layout>)
+        </Content>
+      </Router>
+    </Layout>)
 }
 
 export default App;

@@ -106,7 +106,7 @@ const ChartsCampaigns = () => {
       name: 'c',
     },
   ];
-  var config = {
+  let config = {
     data: [uvData, transformData],
     xField: 'time',
     yField: ['value', 'count'],
@@ -127,7 +127,7 @@ const ChartsCampaigns = () => {
 };
 
 ChartsCampaigns.propTypes = {
-    data: PropTypes.array
+  data: PropTypes.array
 }
 
 export default ChartsCampaigns;

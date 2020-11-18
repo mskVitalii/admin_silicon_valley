@@ -4,7 +4,7 @@ import React from 'react';
 const FormOrdersShoppingList = () => {
     return (
         <div>
-            
+
         </div>
     );
 };

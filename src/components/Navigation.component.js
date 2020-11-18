@@ -1,4 +1,4 @@
-import React, {onClick} from "react";
+import React, { onClick } from "react";
 // import PropTypes from 'prop-types';
 import { NavLink } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const Navigation = () => (
       ghost={true}
       extra={[
         <NavLink key="1" activeClassName="active" to="/campaings">
-          <span>NCahoots Campaigns</span>
+          <span>Campaigns</span>
         </NavLink>,
         <NavLink key="2" activeClassName="active" to="/orders">
           <span>Orders</span>

@@ -4,7 +4,7 @@ import React from 'react';
 const FormPictures = () => {
     return (
         <div>
-            
+
         </div>
     );
 };

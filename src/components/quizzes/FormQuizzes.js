@@ -4,7 +4,7 @@ import React from 'react';
 const FormQuizzes = () => {
     return (
         <div>
-            
+
         </div>
     );
 };

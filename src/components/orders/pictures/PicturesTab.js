@@ -1,8 +1,9 @@
-import React, { useState }      from "react";
-import FormOrders               from "../../orders/FormOrdersOrder";
-import { Layout, Button }       from "antd";
-import Table                    from '../../Table.component'
-import StatisticChart           from '../../campaigns/StatisticChart'
+import React, { useState } from "react";
+import { Layout, Button } from "antd";
+
+import ChartStatistic from '../../campaigns/ChartStatistic'
+import FormOrders from "../../orders/FormOrdersOrder";
+import Table from '../../Table.component'
 
 function PicturesTab() {
 
@@ -63,7 +64,7 @@ function PicturesTab() {
       onFilter: (value, record) => record.address.indexOf(value) === 0,
       sorter: (a, b) => a.address.length - b.address.length,
       sortDirections: ["descend", "ascend"],
-    },    
+    },
     {
       title: "Employees",
       dataIndex: "employees",
@@ -170,37 +171,37 @@ function PicturesTab() {
 
   return (
     <Layout className="layout-main">
-    <Layout className="layout-chart">
-      <Content>
-        <h2>Статистика</h2>
-        <StatisticChart />
-      </Content>
-    </Layout>
+      <Layout className="layout-chart">
+        <Content>
+          <h2>Статистика</h2>
+          <ChartStatistic />
+        </Content>
+      </Layout>
 
-    <Layout>
-      <Content>
-        <h2>Таблица с заказами</h2>
-        <Table columns={columns} data={data} />
-        <div>
-          <Button
-            type="default"
-            onClick={() => {
-              setVisible(true);
-            }}
-          >
-            Add Order
+      <Layout>
+        <Content>
+          <h2>Таблица с заказами</h2>
+          <Table columns={columns} data={data} />
+          <div>
+            <Button
+              type="default"
+              onClick={() => {
+                setVisible(true);
+              }}
+            >
+              Add Order
           </Button>
-          <FormOrders
-            visible={visible}
-            onCreate={onCreate}
-            onCancel={() => {
-              setVisible(false);
-            }}
-          />
-        </div>
-      </Content>
+            <FormOrders
+              visible={visible}
+              onCreate={onCreate}
+              onCancel={() => {
+                setVisible(false);
+              }}
+            />
+          </div>
+        </Content>
+      </Layout>
     </Layout>
-  </Layout>
   )
 }
 

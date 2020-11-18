@@ -3,7 +3,7 @@ import React from 'react';
 import { Funnel } from '@ant-design/charts';
 
 const ChartsCampaignsFunel = () => {
-  var data = [
+  let data = [
     {
       stage: 'Подписки',
       number: 253,
@@ -16,9 +16,9 @@ const ChartsCampaignsFunel = () => {
     }, {
       stage: 'Продажи услуг',
       number: 87,
-    }, 
+    },
   ];
-  var config = {
+  let config = {
     data: data,
     xField: 'stage',
     yField: 'number',

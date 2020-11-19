@@ -26,7 +26,7 @@ function App() {
       <Router>
         <Header><Navigation /></Header>
         <Content>
-          <div>
+          <div className="app-content">
             {/* <hr/> */}
             <Switch>
               <Route path="/campaings" component={CampaingsPage} />

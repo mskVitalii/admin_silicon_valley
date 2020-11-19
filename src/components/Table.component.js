@@ -1,18 +1,20 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Table } from "antd";
-import { Input } from 'antd';
+import { Input } from "antd";
+
+import './Table.component.css'
 
 const { Search } = Input;
 
-
 function TableComponent({ columns, data }) {
-
-  const onSearch = value => console.log(value.target.defaultValue);
+  const onSearch = (value) => console.log(value.target.defaultValue);
 
   function onChange(pagination, filters, sorter, extra) {
     console.log("params", pagination, filters, sorter, extra);
   }
+
+  //TABLE INFO
+  let [numLines, setNumLines] = React.useState(data.length);
 
   return (
     <div>
@@ -20,11 +22,18 @@ function TableComponent({ columns, data }) {
         placeholder="input search text"
         allowClear
         onChange={onSearch}
-        style={{ width: 200, margin: '0 10px' }}
+        style={{ width: 200, margin: "0 10px" }}
       />
 
+      <br/>
+      <div className="table-info">
+        <p>
+          Количество строк: <span className="num-rows">{numLines}</span>
+        </p>
+      </div>
+
       <Table
-        scroll={{ x: 'fit-content' }}
+        scroll={{ x: "fit-content" }}
         columns={columns}
         dataSource={data}
         onChange={onChange}

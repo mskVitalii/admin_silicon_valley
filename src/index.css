@@ -44,9 +44,8 @@ hr {
 .ant-layout-content {
   color: #00214d;
   background: #fffffe;
-  padding: 1rem 0rem;
+  padding: 1rem 5vw;
 }
-
 
 [data-theme="dark"] .ant-layout-header,
 [data-theme="dark"] .ant-layout-footer {

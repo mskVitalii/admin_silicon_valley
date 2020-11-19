@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 // import PropTypes from 'prop-types'
-import { Layout, Button, Divider, Collapse } from 'antd'
+import { Layout, Button, Divider, Collapse, Popconfirm } from 'antd'
 import FormCampaign from '../components/campaigns/FormCampaign'
 import ChartsCampaigns from '../components/campaigns/ChartsCampaigns'
 import ChartsCampaignsFunel from '../components/campaigns/ChartsCampaignsFunel'
@@ -21,6 +21,7 @@ const CampaingsPage = () => {
     {
       title: "ID",
       dataIndex: "id",
+      fixed: 'left',
       filters: [
         {
           text: "Joe",
@@ -67,6 +68,7 @@ const CampaingsPage = () => {
           value: "New York",
         },
       ],
+      width: 150,
       filterMultiple: false,
       onFilter: (value, record) => record.address.indexOf(value) === 0,
       sorter: (a, b) => a.address.length - b.address.length,
@@ -141,6 +143,18 @@ const CampaingsPage = () => {
       dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
+    }, {
+      title: "Action",
+      dataIndex: "action",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+      fixed: 'right',
+      // return: (text, record) =>
+      // this.state.dataSource.length >= 1 ? (
+      //   <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
+      //     <a>Delete</a>
+      //   </Popconfirm>
+      // ) : null
     }
   ];
   const data = [];
@@ -171,7 +185,6 @@ const CampaingsPage = () => {
           </div>
         </Panel>
       </Collapse>
-
 
       <div>
         <h2 style={{ marginLeft: '2rem' }}>Campaigns</h2>

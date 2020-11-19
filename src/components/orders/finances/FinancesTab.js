@@ -159,14 +159,12 @@ function FinancesTab() {
   ];
   const [data, setData] = useState(initialData);
 
-  const onCreate = (values) => {
-    setData(
-      data.concat({
-        name: values.name,
-        age: values.age,
-        address: values.address,
-      })
-    );
+  const onCreate = values => {
+    setData(data.concat({
+      name: values.name,
+      age: values.age,
+      address: values.address,
+    }));
     setVisible(false);
   };
   return (

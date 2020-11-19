@@ -2,13 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Table } from "antd";
 import { Input } from 'antd';
+import { useState } from "react";
 
 const { Search } = Input;
 
 
 function TableComponent({ columns, data }) {
 
-  const onSearch = value => console.log(value.target.defaultValue);
+  const [tableData, setTableData] = useState(data);
+  const onSearch = value => {
+    // Поиск по title
+    setTableData(data.filter(dataObj => ("" + dataObj.title)
+      .toLocaleLowerCase().match(
+        `^.*${value.target.defaultValue.toLocaleLowerCase()}.*$`) !== null
+    ))
+  }
 
   function onChange(pagination, filters, sorter, extra) {
     console.log("params", pagination, filters, sorter, extra);
@@ -19,14 +27,14 @@ function TableComponent({ columns, data }) {
       <Search
         placeholder="input search text"
         allowClear
-        onChange={onSearch}
+        onKeyUp={onSearch}
         style={{ width: 200, margin: '0 10px' }}
       />
 
       <Table
         scroll={{ x: 'fit-content' }}
         columns={columns}
-        dataSource={data}
+        dataSource={tableData}
         onChange={onChange}
         expandable={{
           expandedRowRender: (record) => (

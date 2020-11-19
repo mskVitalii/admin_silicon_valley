@@ -20,7 +20,7 @@ const CampaingsPage = () => {
   const columns = [
     {
       title: "ID",
-      dataIndex: "name",
+      dataIndex: "id",
       filters: [
         {
           text: "Joe",
@@ -46,13 +46,13 @@ const CampaingsPage = () => {
         },
       ],
       // specify the condition of filtering result
-      // here is that finding the name started with `value`
-      onFilter: (value, record) => record.name.indexOf(value) === 0,
-      sorter: (a, b) => a.name.length - b.name.length,
+      // here is that finding the id started with `value`
+      onFilter: (value, record) => record.id.indexOf(value) === 0,
+      sorter: (a, b) => a.id.length - b.id.length,
       sortDirections: ["descend", "ascend"],
     }, {
       title: "Title",
-      dataIndex: "employees",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }, {
@@ -73,135 +73,89 @@ const CampaingsPage = () => {
       sortDirections: ["descend", "ascend"],
     }, {
       title: "Amount Raised",
-      dataIndex: "employees",
+      dataIndex: "title",
       defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
+      sorter: (a, b) => a.title - b.title,
     }, {
-      title: "Recipient Name",
-      dataIndex: "employees",
+      title: "Recipient name",
+      dataIndex: "title",
       defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
+      sorter: (a, b) => a.title - b.title,
     }, {
-      title: "Full Name",
-      dataIndex: "employees",
+      title: "Full name",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }, {
       title: "Recipient Age",
-      dataIndex: "employees",
+      dataIndex: "age",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }, {
       title: "Recipient Gender",
-      dataIndex: "employees",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }, {
       title: "Occasion",
-      dataIndex: "employees",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }, {
       title: "# of Participants",
-      dataIndex: "employees",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }, {
       title: "Started Day",
-      dataIndex: "employees",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }, {
       title: "End Day",
-      dataIndex: "employees",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }, {
       title: "Duration",
-      dataIndex: "employees",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }, {
       title: "# of Question Answered",
-      dataIndex: "employees",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }, {
       title: "# Of pictures Uploaded",
-      dataIndex: "employees",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }, {
       title: "# Of wishes Uploaded",
-      dataIndex: "employees",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }, {
       title: "View Details",
-      dataIndex: "employees",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }
   ];
+  const data = [];
 
-  const data = [
-    {
-      key: "1",
-      name: "Company name 1",
-      employees: Math.round(Math.random() * 10000),
-      address: "New York No. 1 Lake Park",
-      description: "Details for 'Company name 1'",
-    }, {
-      key: "2",
-      name: "Company name 2",
-      employees: Math.round(Math.random() * 10000),
-      address: "London No. 1 Lake Park",
-      description: "Details for 'Company name 2'",
-    }, {
-      key: "3",
-      name: "Company name 3",
-      employees: Math.round(Math.random() * 10000),
-      address: "Sidney No. 1 Lake Park",
-      description: "Details for 'Company name 3'",
-    }, {
-      key: "4",
-      name: "Company name 4",
-      employees: Math.round(Math.random() * 10000),
-      address: "London No. 2 Lake Park",
-      description: "Details for 'Company name 4'",
-    }, {
-      key: "5",
-      name: "Company name 4",
-      employees: Math.round(Math.random() * 10000),
-      address: "London No. 2 Lake Park",
-      description: "Details for 'Company name 4'",
-    }, {
-      key: "6",
-      name: "Company name 4",
-      employees: Math.round(Math.random() * 10000),
-      address: "London No. 2 Lake Park",
-      description: "Details for 'Company name 4'",
-    }, {
-      key: "7",
-      name: "Company name 4",
-      employees: Math.round(Math.random() * 10000),
-      address: "London No. 2 Lake Park",
-      description: "Details for 'Company name 4'",
-    }, {
-      key: "8",
-      name: "Company name 4",
-      employees: Math.round(Math.random() * 10000),
-      address: "London No. 2 Lake Park",
-      description: "Details for 'Company name 4'",
-    }, {
-      key: "9",
-      name: "Company name 4",
-      employees: Math.round(Math.random() * 10000),
-      address: "London No. 2 Lake Park",
-      description: "Details for 'Company name 4'",
-    },
-  ];
-
+  // Генерируем данные для таблицы
+  for (let i = 1; i <= 30; i++) {
+    data.push({
+      key: `${i}`,
+      id: `${i}`,
+      title: ['John Brown', 'Jim Green', 'Joe Black', 'Jim Red'][Math.floor(Math.random() * 4)],
+      age: 20 + Math.floor(Math.random() * 30),
+      address: ['London No. 2 Lake Park', 'Sidney No. 1 Lake Park', 'London No. 1 Lake Park', 'New York No. 1 Lake Park'][Math.floor(Math.random() * 4)],
+      description: `Details for 'Company id ${i}'`,
+    })
+  }
 
 
   let [height, setHeight] = React.useState(null)

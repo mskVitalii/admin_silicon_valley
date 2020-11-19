@@ -15,46 +15,42 @@ const UsersPage = () => {
 
   const columns = [
     {
-      title: "Name",
+      title: "user ID",
+      dataIndex: "id",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.id - b.id,
+    },
+    {
+      title: "Full Name",
       dataIndex: "name",
-      filters: [
-        {
-          text: "Joe",
-          value: "Joe",
-        },
-        {
-          text: "Jim",
-          value: "Jim",
-        },
-        {
-          text: "Submenu",
-          value: "Submenu",
-          children: [
-            {
-              text: "Green",
-              value: "Green",
-            },
-            {
-              text: "Black",
-              value: "Black",
-            },
-          ],
-        },
-      ],
-      // specify the condition of filtering result
-      // here is that finding the name started with `value`
-      onFilter: (value, record) => record.name.indexOf(value) === 0,
       sorter: (a, b) => a.name.length - b.name.length,
       sortDirections: ["descend", "ascend"],
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "Date of Birth",
+      dataIndex: "birthDate",
+      sorter: (a, b) => a.birthDate - b.birthDate,
+    },
+    {
+      title: "Gender",
+      dataIndex: "gender",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.gender - b.gender,
+    },
+    {
+      title: "Phone",
+      dataIndex: "phone",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Address",
+      title: "Email",
+      dataIndex: "email",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Delivery Address",
       dataIndex: "address",
       filters: [
         {
@@ -72,37 +68,19 @@ const UsersPage = () => {
       sortDirections: ["descend", "ascend"],
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "Date of Registration",
+      dataIndex: "regDate",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "Days since last Login",
+      dataIndex: "lastLoginDate",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
+      title: "UTMs",
       dataIndex: "employees",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
@@ -134,29 +112,17 @@ const UsersPage = () => {
   ];
 
   const [visible, setVisible] = useState(false);
-  const initialData = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    }, {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-    }, {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-    }, {
-      key: '4',
-      name: 'Jim Red',
-      age: 32,
-      address: 'London No. 2 Lake Park',
-    },
-  ];
+  const initialData = [];
+  // Генерируем данные для таблицы
+  for (let i = 1; i <= 30; i++) {
+    initialData.push({
+      id: `${i}`,
+      name: ['John Brown', 'Jim Green', 'Joe Black', 'Jim Red'][Math.floor(Math.random() * 4)],
+      birthDate: `${new Date(Math.random() * 100000)}`,
+        age: 20 + Math.floor(Math.random() * 30),
+      address: ['London No. 2 Lake Park', 'Sidney No. 1 Lake Park', 'London No. 1 Lake Park', 'New York No. 1 Lake Park'][Math.floor(Math.random() * 4)],
+    })
+  }
 
   const [data, setData] = useState(initialData);
 

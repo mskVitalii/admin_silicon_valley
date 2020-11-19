@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 // import PropTypes from 'prop-types'
-import { Layout, Button, Divider, Collapse, Popconfirm } from 'antd'
+import { Layout, Button, Collapse, Popconfirm } from 'antd'
 import FormCampaign from '../components/campaigns/FormCampaign'
 import ChartsCampaigns from '../components/campaigns/ChartsCampaigns'
 import ChartsCampaignsFunel from '../components/campaigns/ChartsCampaignsFunel'
@@ -22,6 +22,11 @@ const CampaingsPage = () => {
       title: "ID",
       dataIndex: "id",
       fixed: 'left',
+      sorter: (a, b) => a.id.length - b.id.length,
+      sortDirections: ["descend", "ascend"],
+    }, {
+      title: "Title",
+      dataIndex: "title",
       filters: [
         {
           text: "Joe",
@@ -49,11 +54,6 @@ const CampaingsPage = () => {
       // specify the condition of filtering result
       // here is that finding the id started with `value`
       onFilter: (value, record) => record.id.indexOf(value) === 0,
-      sorter: (a, b) => a.id.length - b.id.length,
-      sortDirections: ["descend", "ascend"],
-    }, {
-      title: "Title",
-      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     }, {
@@ -157,6 +157,12 @@ const CampaingsPage = () => {
       // ) : null
     }
   ];
+  for (const tableCol of columns) {
+    if (tableCol.dataIndex == 'id')
+      tableCol.width = 75
+    else tableCol.width = 150
+  }
+
   const data = [];
 
   // Генерируем данные для таблицы
@@ -168,6 +174,7 @@ const CampaingsPage = () => {
       age: 20 + Math.floor(Math.random() * 30),
       address: ['London No. 2 Lake Park', 'Sidney No. 1 Lake Park', 'London No. 1 Lake Park', 'New York No. 1 Lake Park'][Math.floor(Math.random() * 4)],
       description: `Details for 'Company id ${i}'`,
+      action: (<button>delete</button>)
     })
   }
 

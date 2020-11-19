@@ -1,162 +1,124 @@
 import React, { useState } from 'react'
-import { Layout, Button } from 'antd'
-// import PropTypes from 'prop-types'
+import { Layout, Button, Collapse } from 'antd'
+import { Tabs } from "antd";
 
+// import PropTypes from 'prop-types'
+import ChartStatistic from '../components/campaigns/ChartStatistic'
 import FormQuizzes from '../components/quizzes/FormQuizzes'
 import Table from '../components/Table.component'
 
-const { Header, Sider, Content } = Layout
-
+const { Panel } = Collapse;
+const { TabPane } = Tabs;
 
 const QuizzesPage = () => {
-  const columns = [
+  const colsShowQuiz = [
     {
-      title: "Name",
-      dataIndex: "name",
-      filters: [
-        {
-          text: "Joe",
-          value: "Joe",
-        },
-        {
-          text: "Jim",
-          value: "Jim",
-        },
-        {
-          text: "Submenu",
-          value: "Submenu",
-          children: [
-            {
-              text: "Green",
-              value: "Green",
-            },
-            {
-              text: "Black",
-              value: "Black",
-            },
-          ],
-        },
-      ],
-      // specify the condition of filtering result
-      // here is that finding the name started with `value`
-      onFilter: (value, record) => record.name.indexOf(value) === 0,
-      sorter: (a, b) => a.name.length - b.name.length,
+      title: "NCahoots ID",
+      dataIndex: "id",
+      sorter: (a, b) => a.id - b.id,
       sortDirections: ["descend", "ascend"],
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "Response Author",
+      dataIndex: "author",
       defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
+      sorter: (a, b) => a.author - b.author,
     },
     {
-      title: "Address",
-      dataIndex: "address",
-      filters: [
-        {
-          text: "London",
-          value: "London",
-        },
-        {
-          text: "New York",
-          value: "New York",
-        },
-      ],
-      filterMultiple: false,
-      onFilter: (value, record) => record.address.indexOf(value) === 0,
-      sorter: (a, b) => a.address.length - b.address.length,
+      title: "Response Date",
+      dataIndex: "date",
+      sorter: (a, b) => a.date - b.date,
       sortDirections: ["descend", "ascend"],
     },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    }
   ];
-  const [visible, setVisible] = useState(false);
-  const initialData = [
+  const colsEditQuestions = [
     {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    }, {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-    }, {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-    }, {
-      key: '4',
-      name: 'Jim Red',
-      age: 32,
-      address: 'London No. 2 Lake Park',
+      title: "ID",
+      dataIndex: "id",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.id - b.id,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Category ID",
+      dataIndex: "catID",
+      sorter: (a, b) => a.catID - b.catID,
+    },
+    {
+      title: "Child Category ID",
+      dataIndex: "childCatID",
+      sorter: (a, b) => a.childCatID - b.childCatID,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Primary Text",
+      dataIndex: "primaryText",
+      sorter: (a, b) => a.primaryText - b.primaryText,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Trigger",
+      dataIndex: "trigger",
+      sorter: (a, b) => a.trigger - b.trigger,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Question Type",
+      dataIndex: "type",
+      sorter: (a, b) => a.type - b.type,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Secondary Text",
+      dataIndex: "secondaryText",
+      sorter: (a, b) => a.secondaryText - b.secondaryText,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Answer Options",
+      dataIndex: "options",
+      sorter: (a, b) => a.options - b.options,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Variable",
+      dataIndex: "variable",
+      sorter: (a, b) => a.variable - b.variable,
+      sortDirections: ["descend", "ascend"],
     },
   ];
 
-  const [data, setData] = useState(initialData);
+  const initialDataShow = []
+  const initialDataEdit = []
+
+  // Генерируем данные для таблиц
+  for (let i = 1; i <= 5; i++) {
+    initialDataShow.push({
+      id: `${i}`,
+      author: ['John Brown', 'Jim Green', 'Joe Black', 'Jim Red'][Math.floor(Math.random() * 4)],
+      date: `${new Date(Math.random() * 100000)}`,
+    })
+  }
+  for (let i = 0; i <= 5; i++) {
+    initialDataEdit.push({
+      id: `${i}`,
+      catID: `${Math.floor(Math.random() * 5)}`,
+      childCatID: `${Math.floor(Math.random() * 5)}`,
+      primaryText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit?',
+      secondaryText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit?',
+      trigger: 'trigger',
+      type: 1,
+      options: '1. option1\n2. option2',
+      variable: 'variable'
+    })
+  }
+
+  const [dataShow, setDataShow] = useState(initialDataShow);
+  const [dataEdit, setDataEdit] = useState(initialDataEdit);
+  const [visible, setVisible] = useState(false);
 
   const onCreate = (values) => {
-    setData(data.concat({
+    setDataEdit(prev => prev.concat({
       name: values.name,
       age: values.age,
       address: values.address
@@ -167,31 +129,54 @@ const QuizzesPage = () => {
 
   return (
     <Layout>
-      <Sider>Place for statistic</Sider>
-      <Layout>
-        <Header>Statistic</Header>
-        <Content>
-          <h3>Quizzes table</h3>
-          <Table columns={columns} data={data} />
-          <div>
+      {/* <Collapse style={{ backgroundColor: '#fffffe', paddingBottom: '2rem' }} bordered={false} defaultActiveKey={['0']}>
+        <Panel header="Statistic" key="1">
+          <div className="layout-chart">
+            <h2>Statistic</h2>
+            <ChartStatistic />
+          </div>
+        </Panel>
+      </Collapse> */}
+
+      <div div style={{ backgroundColor: '#fffffe' }}>
+        <Tabs defaultActiveKey="1" size={"large"} style={{ marginBottom: 32 }}>
+          <TabPane tab="Finances" key="1">
+            <h2 style={{ marginLeft: '2rem' }}>User's quizzes</h2>
+            <Table columns={colsShowQuiz} data={dataShow} />
+            <div>
+              <FormQuizzes
+                visible={visible}
+                onCreate={onCreate}
+                onCancel={() => {
+                  setVisible(false);
+                }}
+              />
+            </div>
+
+          </TabPane>
+          <TabPane tab="Shopping Lists" key="2">
+            <h2 style={{ marginLeft: '2rem' }}>All quizzes</h2>
             <Button
               type="default"
               onClick={() => {
                 setVisible(true);
-              }}
-            >
+              }}>
               Add Quiz
-                        </Button>
-            <FormQuizzes
-              visible={visible}
-              onCreate={onCreate}
-              onCancel={() => {
-                setVisible(false);
-              }}
-            />
-          </div>
-        </Content>
-      </Layout>
+              </Button>
+            <Table columns={colsEditQuestions} data={dataEdit} />
+            <div>
+              <FormQuizzes
+                visible={visible}
+                onCreate={onCreate}
+                onCancel={() => {
+                  setVisible(false);
+                }} />
+            </div>
+
+          </TabPane>
+        </Tabs>
+
+      </div>
     </Layout>
   )
 }

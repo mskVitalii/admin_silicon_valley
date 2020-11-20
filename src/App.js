@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout } from "antd";
-import "./index.css";
+import "./index.scss";
 
 import { Redirect, Route, BrowserRouter as Router, Switch} from "react-router-dom";
 import Navigation     from './components/Navigation.component'

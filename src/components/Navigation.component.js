@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 import { PageHeader, Button } from "antd";
 
-import "./Navigation.component.css";
+import "./Navigation.component.scss";
 
 const Navigation = () => (
   <nav className="page-nav">

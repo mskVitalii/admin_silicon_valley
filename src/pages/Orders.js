@@ -6,7 +6,7 @@ import ShoppingTab from '../components/orders/shoppingLists/ShoppingTab'
 import WishesTab from '../components/orders/wishes/WishesTab'
 import PicturesTab from '../components/orders/pictures/PicturesTab'
 
-import "./styles/Orders.css";
+import "./styles/Orders.scss";
 
 const { TabPane } = Tabs;
 

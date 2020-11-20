@@ -158,7 +158,7 @@ function WishesTab() {
     },
   ];
   for (const tableCol of columns) {
-    if (tableCol.dataIndex == "id") tableCol.width = 75;
+    if (tableCol.dataIndex == "id") tableCol.width = 55;
     else tableCol.width = 150;
   }
 

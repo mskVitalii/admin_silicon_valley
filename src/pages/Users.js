@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
-import { Layout, Button, Tabs } from 'antd'
+import React, { useState } from "react";
+import { Layout, Button, Tabs } from "antd";
 
-import FormUsers from '../components/users/FormUser'
-import Table from '../components/Table.component'
-
+import FormUsers from "../components/users/FormUser";
+import Table from "../components/Table.component";
+import Context from "./context";
 
 // import PropTypes from 'prop-types'
 
-const { Header, Sider, Content } = Layout
+const { Header, Sider, Content } = Layout;
 const { TabPane } = Tabs;
 
-
 const UsersPage = () => {
-
   const columns = [
     {
       title: "user ID",
@@ -110,6 +108,10 @@ const UsersPage = () => {
       sorter: (a, b) => a.age - b.age,
     }
   ];
+  for (const tableCol of columns) {
+    if (tableCol.dataIndex == "id") tableCol.width = 75;
+    else tableCol.width = 150;
+  }
 
   const [visible, setVisible] = useState(false);
   const initialData = [];
@@ -117,67 +119,80 @@ const UsersPage = () => {
   for (let i = 1; i <= 30; i++) {
     initialData.push({
       id: `${i}`,
-      name: ['John Brown', 'Jim Green', 'Joe Black', 'Jim Red'][Math.floor(Math.random() * 4)],
+      name: ["John Brown", "Jim Green", "Joe Black", "Jim Red"][
+        Math.floor(Math.random() * 4)
+      ],
       birthDate: `${new Date(Math.random() * 100000)}`,
-        age: 20 + Math.floor(Math.random() * 30),
-      address: ['London No. 2 Lake Park', 'Sidney No. 1 Lake Park', 'London No. 1 Lake Park', 'New York No. 1 Lake Park'][Math.floor(Math.random() * 4)],
-    })
+      age: 20 + Math.floor(Math.random() * 30),
+      address: [
+        "London No. 2 Lake Park",
+        "Sidney No. 1 Lake Park",
+        "London No. 1 Lake Park",
+        "New York No. 1 Lake Park",
+      ][Math.floor(Math.random() * 4)],
+    });
+  }
+  const [data, setData] = useState(initialData);
+  function deleteRow(key) {
+    setData(data.filter((item) => item.key != key));
   }
 
-  const [data, setData] = useState(initialData);
-
   const onCreate = (values) => {
-    setData(data.concat({
-      name: values.name,
-      age: values.age,
-      address: values.address
-    }));
+    setData(
+      data.concat({
+        name: values.name,
+        age: values.age,
+        address: values.address,
+      })
+    );
     setVisible(false);
   };
 
   return (
-    <Tabs defaultActiveKey="1" size={'large'} style={{ marginBottom: 32 }}>
-      <TabPane tab="Customers" key="1">
-        <Table columns={columns} data={data} />
-        <Button
-          type="default"
-          onClick={() => {
-            setVisible(true);
-          }}
-        >
-          Add User
-            </Button>
-        <FormUsers
-          visible={visible}
-          onCreate={onCreate}
-          onCancel={() => {
-            setVisible(false);
-          }}
-        />
-      </TabPane>
-      <TabPane tab="Admins" key="2">
-        <h3>Users with administrative rights</h3>
-        <Table columns={columns} data={data} />
-        <Button
-          type="default"
-          onClick={() => {
-            setVisible(true);
-          }}
-        >
-          Add User
-            </Button>
-        <FormUsers
-          visible={visible}
-          onCreate={onCreate}
-          onCancel={() => {
-            setVisible(false);
-          }}
-        />
-      </TabPane>
-    </Tabs>
-  )
-}
+    <Context.Provider value={{ deleteRow }}>
+      <Tabs defaultActiveKey="1" size={"large"} style={{ marginBottom: 32 }}>
+        <TabPane tab="Customers" key="1">
+          <Table columns={columns} data={data} />
+          <Button
+            type="default"
+            onClick={() => {
+              setVisible(true);
+            }}
+          >
+            Add User
+          </Button>
+          <FormUsers
+            visible={visible}
+            onCreate={onCreate}
+            onCancel={() => {
+              setVisible(false);
+            }}
+          />
+        </TabPane>
+        <TabPane tab="Admins" key="2">
+          <h3>Users with administrative rights</h3>
+          <Table columns={columns} data={data} />
+          <Button
+            type="default"
+            onClick={() => {
+              setVisible(true);
+            }}
+          >
+            Add User
+          </Button>
+          <FormUsers
+            visible={visible}
+            onCreate={onCreate}
+            onCancel={() => {
+              setVisible(false);
+            }}
+          />
+        </TabPane>
+      </Tabs>
+    </Context.Provider>
+  );
+};
 
-UsersPage.propTypes = {}
+UsersPage.propTypes = {};
 
-export default UsersPage
+export default UsersPage;

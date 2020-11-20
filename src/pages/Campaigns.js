@@ -1,17 +1,8 @@
 import React, { useState } from "react";
 
 // import PropTypes from 'prop-types'
-import { Layout, Button, Collapse, Popconfirm } from "antd";
-import FormCampaign from "../components/campaigns/FormCampaign";
-import ChartsCampaigns from "../components/campaigns/ChartsCampaigns";
-import ChartsCampaignsFunel from "../components/campaigns/ChartsCampaignsFunel";
+import { Layout, Collapse } from "antd";
 import Table from "../components/Table.component";
-import {
-  DownloadOutlined,
-  SearchOutlined,
-  PlusSquareOutlined,
-  DeleteOutlined,
-} from "@ant-design/icons";
 import Context from "./context";
 
 import "./styles/Campaigns.scss";
@@ -207,8 +198,8 @@ const CampaingsPage = () => {
     setData(data.filter((item) => item.key != key));
   }
 
-  let [height, setHeight] = React.useState(null);
-  let [visible, setVisible] = React.useState(false);
+  // let [height, setHeight] = React.useState(null);
+  // let [visible, setVisible] = React.useState(false);
 
   return (
     <Context.Provider value={{ deleteRow }}>

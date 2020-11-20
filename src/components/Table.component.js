@@ -12,14 +12,14 @@ import "./Table.component.scss";
 
 const { Search } = Input;
 
-function TableComponent({ columns, data }) {
+function TableComponent({ columns, data, idTbl }) {
   const { deleteRow } = useContext(Context);
   for (let i = 0; i < data.length; i++) {
     data.forEach((item) => {
       item.action = (
         <button
           onClick={() => {
-            deleteRow.call(null, item.key);
+            deleteRow.call(null, item.key, idTbl ? idTbl : null);
           }}
         >
           delete

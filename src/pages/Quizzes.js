@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
-import { Layout, Button, Collapse } from 'antd'
+import React, { useState } from "react";
+import { Layout, Button, Collapse } from "antd";
 import { Tabs } from "antd";
 
 // import PropTypes from 'prop-types'
-import ChartStatistic from '../components/campaigns/ChartStatistic'
-import FormQuizzes from '../components/quizzes/FormQuizzes'
-import Table from '../components/Table.component'
+import ChartStatistic from "../components/campaigns/ChartStatistic";
+import FormQuizzes from "../components/quizzes/FormQuizzes";
+import Table from "../components/Table.component";
+import Context from "./context";
 
 const { Panel } = Collapse;
 const { TabPane } = Tabs;
@@ -88,29 +89,41 @@ const QuizzesPage = () => {
     },
   ];
 
-  const initialDataShow = []
-  const initialDataEdit = []
+  const initialDataShow = [];
+  const initialDataEdit = [];
 
   // Генерируем данные для таблиц
   for (let i = 1; i <= 5; i++) {
     initialDataShow.push({
+      key: `${i}`,
       id: `${i}`,
-      author: ['John Brown', 'Jim Green', 'Joe Black', 'Jim Red'][Math.floor(Math.random() * 4)],
+      author: ["John Brown", "Jim Green", "Joe Black", "Jim Red"][
+        Math.floor(Math.random() * 4)
+      ],
       date: `${new Date(Math.random() * 100000)}`,
-    })
+    });
   }
   for (let i = 0; i <= 5; i++) {
     initialDataEdit.push({
+      key: `${i}`,
       id: `${i}`,
       catID: `${Math.floor(Math.random() * 5)}`,
       childCatID: `${Math.floor(Math.random() * 5)}`,
-      primaryText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit?',
-      secondaryText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit?',
-      trigger: 'trigger',
+      primaryText: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
+      secondaryText: "Lorem ipsum dolor sit amet consectetur adipisicing elit?",
+      trigger: "trigger",
       type: 1,
-      options: '1. option1\n2. option2',
-      variable: 'variable'
-    })
+      options: "1. option1\n2. option2",
+      variable: "variable",
+    });
+  }
+
+  function deleteRow(key, data) {
+    if(data == 1) {
+      setDataShow(dataShow.filter((item) => item.key != key));
+    } else if(data == 0) {
+      setDataEdit(dataEdit.filter((item) => item.key != key));
+    }
   }
 
   const [dataShow, setDataShow] = useState(initialDataShow);
@@ -118,18 +131,20 @@ const QuizzesPage = () => {
   const [visible, setVisible] = useState(false);
 
   const onCreate = (values) => {
-    setDataEdit(prev => prev.concat({
-      name: values.name,
-      age: values.age,
-      address: values.address
-    }));
+    setDataEdit((prev) =>
+      prev.concat({
+        name: values.name,
+        age: values.age,
+        address: values.address,
+      })
+    );
     setVisible(false);
   };
 
-
   return (
-    <Layout>
-      {/* <Collapse style={{ backgroundColor: '#fffffe', paddingBottom: '2rem' }} bordered={false} defaultActiveKey={['0']}>
+    <Context.Provider value={{ deleteRow }}>
+      <Layout>
+        {/* <Collapse style={{ backgroundColor: '#fffffe', paddingBottom: '2rem' }} bordered={false} defaultActiveKey={['0']}>
         <Panel header="Statistic" key="1">
           <div className="layout-chart">
             <h2>Statistic</h2>
@@ -138,49 +153,53 @@ const QuizzesPage = () => {
         </Panel>
       </Collapse> */}
 
-      <div div style={{ backgroundColor: '#fffffe' }}>
-        <Tabs defaultActiveKey="1" size={"large"} style={{ marginBottom: 32 }}>
-          <TabPane tab="Finances" key="1">
-            <h2 style={{ marginLeft: '2rem' }}>User's quizzes</h2>
-            <Table columns={colsShowQuiz} data={dataShow} />
-            <div>
-              <FormQuizzes
-                visible={visible}
-                onCreate={onCreate}
-                onCancel={() => {
-                  setVisible(false);
+        <div div style={{ backgroundColor: "#fffffe" }}>
+          <Tabs
+            defaultActiveKey="1"
+            size={"large"}
+            style={{ marginBottom: 32 }}
+          >
+            <TabPane tab="Finances" key="1">
+              <h2 style={{ marginLeft: "2rem" }}>User's quizzes</h2>
+              <Table columns={colsShowQuiz} data={dataShow} idTbl={1}/>
+              <div>
+                <FormQuizzes
+                  visible={visible}
+                  onCreate={onCreate}
+                  onCancel={() => {
+                    setVisible(false);
+                  }}
+                />
+              </div>
+            </TabPane>
+            <TabPane tab="Shopping Lists" key="2">
+              <h2 style={{ marginLeft: "2rem" }}>All quizzes</h2>
+              <Button
+                type="default"
+                onClick={() => {
+                  setVisible(true);
                 }}
-              />
-            </div>
-
-          </TabPane>
-          <TabPane tab="Shopping Lists" key="2">
-            <h2 style={{ marginLeft: '2rem' }}>All quizzes</h2>
-            <Button
-              type="default"
-              onClick={() => {
-                setVisible(true);
-              }}>
-              Add Quiz
+              >
+                Add Quiz
               </Button>
-            <Table columns={colsEditQuestions} data={dataEdit} />
-            <div>
-              <FormQuizzes
-                visible={visible}
-                onCreate={onCreate}
-                onCancel={() => {
-                  setVisible(false);
-                }} />
-            </div>
+              <Table columns={colsEditQuestions} data={dataEdit} idTbl={0}/>
+              <div>
+                <FormQuizzes
+                  visible={visible}
+                  onCreate={onCreate}
+                  onCancel={() => {
+                    setVisible(false);
+                  }}
+                />
+              </div>
+            </TabPane>
+          </Tabs>
+        </div>
+      </Layout>
+    </Context.Provider>
+  );
+};
 
-          </TabPane>
-        </Tabs>
+QuizzesPage.propTypes = {};
 
-      </div>
-    </Layout>
-  )
-}
-
-QuizzesPage.propTypes = {}
-
-export default QuizzesPage
+export default QuizzesPage;

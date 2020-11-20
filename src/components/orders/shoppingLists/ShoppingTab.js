@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import { Layout, Button, Collapse } from "antd";
 
-import ChartStatistic from '../../campaigns/ChartStatistic'
+import ChartStatistic from "../../campaigns/ChartStatistic";
 import FormOrders from "../../orders/FormOrdersOrder";
-import Table from '../../Table.component'
+import Table from "../../Table.component";
+import Context from "../../../pages/context";
 
-const { Panel } = Collapse
+const { Panel } = Collapse;
 
 function ShoppingTab() {
-
   const columns = [
     {
-      title: "Name",
-      dataIndex: "name",
+      title: "ID",
+      dataIndex: "id",
+      fixed: "left",
+      sorter: (a, b) => a.id.length - b.id.length,
+      sortDirections: ["descend", "ascend"],
+    },
+    {
+      title: "Title",
+      dataIndex: "title",
       filters: [
         {
           text: "Joe",
@@ -37,15 +44,7 @@ function ShoppingTab() {
           ],
         },
       ],
-      // specify the condition of filtering result
-      // here is that finding the name started with `value`
-      onFilter: (value, record) => record.name.indexOf(value) === 0,
-      sorter: (a, b) => a.name.length - b.name.length,
-      sortDirections: ["descend", "ascend"],
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
+      onFilter: (value, record) => record.id.indexOf(value) === 0,
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
@@ -62,103 +61,135 @@ function ShoppingTab() {
           value: "New York",
         },
       ],
+      width: 150,
       filterMultiple: false,
       onFilter: (value, record) => record.address.indexOf(value) === 0,
       sorter: (a, b) => a.address.length - b.address.length,
       sortDirections: ["descend", "ascend"],
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "Amount Raised",
+      dataIndex: "title",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.title - b.title,
+    },
+    {
+      title: "Recipient name",
+      dataIndex: "title",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.title - b.title,
+    },
+    {
+      title: "Full name",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "Recipient Age",
+      dataIndex: "age",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "Recipient Gender",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "Occasion",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "# of Participants",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "Started Day",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "End Day",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "Duration",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "# of Question Answered",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
     {
-      title: "Employees",
-      dataIndex: "employees",
+      title: "# Of pictures Uploaded",
+      dataIndex: "title",
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
-    }
+    },
+    {
+      title: "# Of wishes Uploaded",
+      dataIndex: "title",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "View Details",
+      dataIndex: "title",
+      defaultSortOrder: "descend",
+      sorter: (a, b) => a.age - b.age,
+    },
+    {
+      title: "Action",
+      dataIndex: "action",
+      fixed: "right",
+    },
   ];
+  for (const tableCol of columns) {
+    if (tableCol.dataIndex == "id") tableCol.width = 75;
+    else tableCol.width = 150;
+  }
+
+  let initData = [];
+  // Генерируем данные для таблицы
+  for (let i = 1; i <= 30; i++) {
+    initData.push({
+      key: `${i}`,
+      id: `${i}`,
+      title: ["John Brown", "Jim Green", "Joe Black", "Jim Red"][
+        Math.floor(Math.random() * 4)
+      ],
+      age: 20 + Math.floor(Math.random() * 30),
+      address: [
+        "London No. 2 Lake Park",
+        "Sidney No. 1 Lake Park",
+        "London No. 1 Lake Park",
+        "New York No. 1 Lake Park",
+      ][Math.floor(Math.random() * 4)],
+      description: `Details for 'Company id ${i}'`,
+    });
+  }
 
   const { Header, Sider, Content } = Layout;
   const [visible, setVisible] = useState(false);
 
-  const initialData = [
-    {
-      key: "1",
-      name: "John Brown",
-      age: 32,
-      address: "New York No. 1 Lake Park",
-    },
-    {
-      key: "2",
-      name: "Jim Green",
-      age: 42,
-      address: "London No. 1 Lake Park",
-    },
-    {
-      key: "3",
-      name: "Joe Black",
-      age: 32,
-      address: "Sidney No. 1 Lake Park",
-    },
-    {
-      key: "4",
-      name: "Jim Red",
-      age: 32,
-      address: "London No. 2 Lake Park",
-    },
-  ];
-  const [data, setData] = useState(initialData);
+  // const [data, setData] = useState(initialData);
+  let [data, setData] = React.useState(initData);
+  function deleteRow(key) {
+    setData(data.filter((item) => item.key != key));
+  }
 
   const onCreate = (values) => {
     setData(
@@ -172,41 +203,49 @@ function ShoppingTab() {
   };
 
   return (
-    <Layout className="layout-main">
-      <Collapse style={{ backgroundColor: '#fffffe', paddingBottom: '2rem' }} bordered={false} defaultActiveKey={['0']}>
-        <Panel header="Statistic" key="1">
-          <div className="layout-chart">
-            <h2>Statistic</h2>
-            <ChartStatistic />
-          </div>
-        </Panel>
-      </Collapse>
+    <Context.Provider value={{ deleteRow }}>
+      <Layout className="layout-main">
+        <Collapse
+          style={{ backgroundColor: "#fffffe", paddingBottom: "2rem" }}
+          bordered={false}
+          defaultActiveKey={["0"]}
+        >
+          <Panel header="Statistic" key="1">
+            <div className="layout-chart">
+              <h2>Statistic</h2>
+              <ChartStatistic />
+            </div>
+          </Panel>
+        </Collapse>
 
-      <Layout>
-        <Content>
-          <h2>Order's table</h2>
-          <Table columns={columns} data={data} />
-          <div>
-            <Button
-              type="default"
-              onClick={() => {
-                setVisible(true);
-              }}
-            >
-              Add Order
-          </Button>
-            <FormOrders
-              visible={visible}
-              onCreate={onCreate}
-              onCancel={() => {
-                setVisible(false);
-              }}
-            />
-          </div>
-        </Content>
+        <Layout>
+          <Content>
+            <h2 style={{ padding: "1rem", paddingLeft: "2rem" }}>
+              Order's table
+            </h2>
+            <Table columns={columns} data={data} />
+            <div>
+              <Button
+                type="default"
+                onClick={() => {
+                  setVisible(true);
+                }}
+              >
+                Add Order
+              </Button>
+              <FormOrders
+                visible={visible}
+                onCreate={onCreate}
+                onCancel={() => {
+                  setVisible(false);
+                }}
+              />
+            </div>
+          </Content>
+        </Layout>
       </Layout>
-    </Layout>
-  )
+    </Context.Provider>
+  );
 }
 
 ShoppingTab.propTypes = {};

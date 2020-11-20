@@ -218,7 +218,7 @@ const CampaingsPage = () => {
         </Collapse>
 
         <div>
-          <h2 style={{ marginLeft: "2rem" }}>Campaigns</h2>
+          <h2>Campaigns</h2>
           <Table columns={columns} data={data} />
         </div>
       </Layout>

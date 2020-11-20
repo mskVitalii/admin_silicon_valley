@@ -49,11 +49,11 @@ const Login = () => {
       </Form.Item>
       <Form.Item>
         <Form.Item name="remember" valuePropName="checked" noStyle>
-          <Checkbox>Remember me</Checkbox>
+          <Checkbox >Remember me</Checkbox>
         </Form.Item>
 
         <NavLink to="/forgetpassword">
-          <span className="login-form-forgot">
+          <span >
             Forgot password
             </span>
         </NavLink>

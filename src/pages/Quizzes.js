@@ -36,7 +36,7 @@ const QuizzesPage = () => {
     {
       title: "ID",
       dataIndex: "id",
-      defaultSortOrder: "descend",
+      defaultSortOrder: "ascend",
       sorter: (a, b) => a.id - b.id,
       sortDirections: ["descend", "ascend"],
     },
@@ -93,7 +93,7 @@ const QuizzesPage = () => {
   const initialDataEdit = [];
 
   // Генерируем данные для таблиц
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 0; i <= 5; i++) {
     initialDataShow.push({
       key: `${i}`,
       id: `${i}`,
@@ -119,9 +119,9 @@ const QuizzesPage = () => {
   }
 
   function deleteRow(key, data) {
-    if(data == 1) {
+    if (data == 1) {
       setDataShow(dataShow.filter((item) => item.key != key));
-    } else if(data == 0) {
+    } else if (data == 0) {
       setDataEdit(dataEdit.filter((item) => item.key != key));
     }
   }
@@ -159,9 +159,9 @@ const QuizzesPage = () => {
             size={"large"}
             style={{ marginBottom: 32 }}
           >
-            <TabPane tab="Finances" key="1">
+            <TabPane tab="User's quizzes & interactions" key="1">
               <h2 style={{ marginLeft: "2rem" }}>User's quizzes</h2>
-              <Table columns={colsShowQuiz} data={dataShow} idTbl={1}/>
+              <Table columns={colsShowQuiz} data={dataShow} idTbl={1} />
               <div>
                 <FormQuizzes
                   visible={visible}
@@ -172,17 +172,9 @@ const QuizzesPage = () => {
                 />
               </div>
             </TabPane>
-            <TabPane tab="Shopping Lists" key="2">
+            <TabPane tab="All quizzes from DB" key="2">
               <h2 style={{ marginLeft: "2rem" }}>All quizzes</h2>
-              <Button
-                type="default"
-                onClick={() => {
-                  setVisible(true);
-                }}
-              >
-                Add Quiz
-              </Button>
-              <Table columns={colsEditQuestions} data={dataEdit} idTbl={0}/>
+              <Table columns={colsEditQuestions} data={dataEdit} idTbl={0} />
               <div>
                 <FormQuizzes
                   visible={visible}

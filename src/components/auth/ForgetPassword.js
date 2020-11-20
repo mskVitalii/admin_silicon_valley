@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import { Form, Input, Button } from 'antd';
-import { ArrowLeftOutlined, MailOutlined } from '@ant-design/icons';
+import { MailOutlined,DoubleLeftOutlined  } from '@ant-design/icons';
 
 import './auth.style.css'
 
@@ -22,7 +22,7 @@ const ForgetPassword = () => {
     >
       <Form.Item>
         <a href="/">
-          <ArrowLeftOutlined /> Back
+        <DoubleLeftOutlined style={{ fontSize: '25px'}} />
         </a>
       </Form.Item>
 

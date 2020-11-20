@@ -3,6 +3,7 @@ import { Table, Input, Button, } from "antd";
 import {
   DownloadOutlined,
   PlusSquareOutlined,
+  ExportOutlined 
 } from "@ant-design/icons";
 import Context from "../pages/context";
 
@@ -17,13 +18,15 @@ function TableComponent({ columns, data, idTbl }) {
   for (let i = 0; i < data.length; i++) {
     data.forEach((item) => {
       item.action = (
-        <button
+        <Button
+        className="deleteButton"
+        type="dashed" danger
           onClick={() => {
             deleteRow.call(null, item.key, idTbl ? idTbl : null);
           }}
         >
           delete
-        </button>
+        </Button>
       );
     });
   }
@@ -64,8 +67,11 @@ function TableComponent({ columns, data, idTbl }) {
         >
           Add campaigns
         </Button>
-        <Button default={true} disabled={true} icon={<DownloadOutlined />}>
-          Загрузка[ПЕРЕМЕСТИТЬ]
+        <Button default={true} disabled={true} icon={<DownloadOutlined /> }className="downloadButton">
+          download
+        </Button>
+        <Button default={true} disabled={true} icon={<ExportOutlined />} className="exportButton">
+          export
         </Button>
         <FormCampaign
           visible={visible}
@@ -75,6 +81,8 @@ function TableComponent({ columns, data, idTbl }) {
         />
         <Search
           className="search"
+          enterButton
+          size="large"
           placeholder="input search text"
           allowClear
           onKeyUp={onSearch}

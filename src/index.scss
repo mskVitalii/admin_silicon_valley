@@ -24,21 +24,32 @@ hr {
 .ant-layout-header,
 .ant-layout-footer {
   color: #00214d;
-  background:#f2f4f6;
 }
 
-.ant-layout-sider {
-  color: #fff;
-  border: #00214d 3px dashed;
-  padding: 1rem;
-  /* margin-left: 0.5rem;
-  background: white; */
-  background: #232946;
-  /* max-width: 25% !important; */
-  min-width: 25% !important;
-  width: 25% !important;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+// .ant-layout-sider {
+//   color: #fff;
+//   border: #00214d 3px dashed;
+//   padding: 1rem;
+//   /* margin-left: 0.5rem;
+//   background: white; */
+//   background: #232946;
+//   /* max-width: 25% !important; */
+//   min-width: 15% !important;
+//   width: 15% !important;
+//   border-radius: 10px;
+//   box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+// }
+
+.ant-layout-sider-children {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  justify-content: space-between;
+}
+
+.ant-avatar {
+  margin: 0 auto;
 }
 
 .ant-layout-content {

@@ -220,7 +220,7 @@ function PicturesTab() {
           </Panel>
         </Collapse>
 
-        <Layout>
+        {/* <Layout>
           <Content className="table-content">
             <h2>Order's table</h2>
             <Table columns={columns} data={data} />
@@ -242,7 +242,11 @@ function PicturesTab() {
               />
             </div>
           </Content>
-        </Layout>
+        </Layout> */}
+        <div>
+          <h2>Order's table</h2>
+          <Table columns={columns} data={data} />
+        </div>
       </Layout>
     </Context.Provider>
   );

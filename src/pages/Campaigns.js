@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 // import PropTypes from 'prop-types'
-import { Layout, Collapse } from "antd";
-import Table from "../components/Table.component";
+import { Layout, Collapse, Table } from "antd";
+import TableComponent from "../components/Table.component";
 import Context from "./context";
 
 import "./styles/Campaigns.scss";
@@ -194,6 +194,7 @@ const CampaingsPage = () => {
     });
   }
   let [data, setData] = React.useState(initData);
+
   function deleteRow(key) {
     setData(data.filter((item) => item.key != key));
   }
@@ -219,7 +220,7 @@ const CampaingsPage = () => {
 
         <div>
           <h2>Campaigns</h2>
-          <Table columns={columns} data={data} />
+          <TableComponent columns={columns} data={data} />
         </div>
       </Layout>
     </Context.Provider>

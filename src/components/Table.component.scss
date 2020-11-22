@@ -7,32 +7,47 @@
   border-radius: 4px;
   box-shadow: 0 0 1px 0 lightgrey;
 }
-.deleteButton{
+.deleteButton {
   width: 110%;
 }
-.table-actions,
- .table-actions Button:not(:last-child) {
-  width: 145px;
-  margin: 0.5rem 0.5rem 0.5rem 0rem !important;
+
+.table-actions {
+  width: 30%;
 }
-.exportButton{
+.btns-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 32.5%);
+  gap: 5px;
+
+  margin-bottom: 0.2rem !important;
+
+  // Button {
+  //   span {
+  //     width: 0;
+  //     overflow-x: hidden;
+  //     transition: .2s;
+  //   }
+  //   &:hover {
+  //     span {
+  //       width: 100%;
+  //       overflow-x: visible;transition: .2s;
+  //     }
+  //   }
+  // }
+}
+.exportButton {
   width: 100px !important;
 }
-.downloadButton{
+.downloadButton {
   width: 110px !important;
 }
-.table-actions .search{
-  margin: 0.5rem 0rem 0.5rem 0.5rem !important;
-  width: 30% !important;
-  float: right;
-}
 .table-actions {
-  display: inline;
-
-  Button{
+  // display: inline;
+  float: right;
+  Button {
+    width: 100% !important;
     margin: 0 0 0.1rem 0;
   }
-
 }
 
 .num-rows {

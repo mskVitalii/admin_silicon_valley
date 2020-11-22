@@ -5,6 +5,8 @@ import Table from "../../Table.component";
 import ChartStatistic from "../../campaigns/ChartStatistic";
 import Context from "../../../pages/context";
 
+import './FinancesTab.scss'
+
 const { Panel } = Collapse;
 
 function FinancesTab() {
@@ -202,14 +204,14 @@ function FinancesTab() {
   };
   return (
     <Context.Provider value={{ deleteRow }}>
-      <Layout className="layout-main">
+      <Layout>
         <Collapse
           style={{ backgroundColor: "#fffffe", paddingBottom: "2rem" }}
           bordered={false}
           defaultActiveKey={["0"]}
         >
           <Panel header="Statistic" key="1">
-            <div className="layout-chart">
+            <div>
               <h2>Statistic</h2>
               <ChartStatistic />
             </div>
@@ -217,10 +219,8 @@ function FinancesTab() {
         </Collapse>
 
         <Layout>
-          <Content>
-            <h2 style={{ padding: "1rem", paddingLeft: "2rem" }}>
-              Order's table
-            </h2>
+          <Content className="table-content">
+            <h2>Order's table</h2>
             <Table columns={columns} data={data} />
             <div>
               <Button

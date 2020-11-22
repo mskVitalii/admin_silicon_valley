@@ -6,6 +6,8 @@ import FormOrders from "../../orders/FormOrdersOrder";
 import Table from "../../Table.component";
 import Context from "../../../pages/context";
 
+import './PicturesTab.scss'
+
 const { Panel } = Collapse;
 
 function PicturesTab() {
@@ -219,10 +221,8 @@ function PicturesTab() {
         </Collapse>
 
         <Layout>
-          <Content>
-            <h2 style={{ padding: "1rem", paddingLeft: "2rem" }}>
-              Order's table
-            </h2>
+          <Content className="table-content">
+            <h2>Order's table</h2>
             <Table columns={columns} data={data} />
             <div>
               <Button

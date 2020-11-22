@@ -204,7 +204,7 @@ function FinancesTab() {
   };
   return (
     <Context.Provider value={{ deleteRow }}>
-      <Layout>
+      <Layout className="layout-main">
         <Collapse
           style={{ backgroundColor: "#fffffe", paddingBottom: "2rem" }}
           bordered={false}

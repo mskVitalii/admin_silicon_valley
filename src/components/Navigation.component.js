@@ -1,5 +1,6 @@
 import React, { onClick } from "react";
 // import PropTypes from 'prop-types';
+import Avatar from "antd/lib/avatar/avatar";
 import { NavLink } from "react-router-dom";
 import {
   PieChartOutlined,

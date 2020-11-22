@@ -216,31 +216,10 @@ function FinancesTab() {
           </Panel>
         </Collapse>
 
-        <Layout>
-          <Content>
-            <h2 style={{ padding: "1rem", paddingLeft: "2rem" }}>
-              Order's table
-            </h2>
-            <Table columns={columns} data={data} />
-            <div>
-              <Button
-                type="default"
-                onClick={() => {
-                  setVisible(true);
-                }}
-              >
-                Add Order
-              </Button>
-              <FormOrders
-                visible={visible}
-                onCreate={onCreate}
-                onCancel={() => {
-                  setVisible(false);
-                }}
-              />
-            </div>
-          </Content>
-        </Layout>
+        <div>
+          <h2>Finance table</h2>
+          <Table columns={columns} data={data} />
+        </div>
       </Layout>
     </Context.Provider>
   );

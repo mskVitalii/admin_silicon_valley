@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Menu, Button, Layout } from "antd";
+import { Layout } from "antd";
 import "./index.scss";
 
 import { Redirect, Route, BrowserRouter as Router, Switch} from "react-router-dom";
@@ -15,38 +15,42 @@ import UsersPage      from './pages/Users'
 import Login          from '../src/components/auth/Login'
 import Register       from '../src/components/auth/Register'
 import ForgetPassword from '../src/components/auth/ForgetPassword'
-import Avatar from "antd/lib/avatar/avatar";
+import Avatar         from "antd/lib/avatar/avatar";
 
 
-const { Header, Content, Sider } = Layout
+const { Content, Sider } = Layout
 
 // Навигация & структура базовой страницы
 function App() {
 
-  const [collapsed, setCollapsed] = useState(false);
+  // const [collapsed, setCollapsed] = useState(false);
 
-  const onCollapse = collapsed => {
-    setCollapsed(collapsed);
-  }
+  // const onCollapse = collapsed => {
+  //   setCollapsed(collapsed);
+  // }
 
   let loggedIn = false;
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Router>
-        <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+        <Sider style={{
+        overflow: 'auto',
+        height: '100vh',
+        position: 'fixed',
+        left: 0,
+        }}>
           <Navigation />
           <Avatar style={{
               backgroundColor: "green",
-              verticalAlign: 'middle'
-        }}
+              verticalAlign: "center"
+          }}
           size="large" >
-          Morat
+          Misha
           </Avatar>
         </Sider>
-        <Layout>
-        <Content>
-          <div className="app-content">
+        <Layout style={{ minHeight: '100vh', marginLeft: '150px', backgroundColor: '#fffffe'}}>
+        <Content style={{ margin: '16px 0'}}>
             {/* <hr/> */}
             <Switch>
               <Route path="/campaings" component={CampaingsPage} />
@@ -65,9 +69,8 @@ function App() {
               </Route>
             </Switch>
             {/* <hr/> */}
-          </div>
         </Content>
-    </Layout>
+      </Layout>
     </Router>
     </Layout>)
 }

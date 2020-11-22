@@ -92,6 +92,23 @@ function TableComponent({ columns, data, idTbl }) {
           return setSelectedRows({ selectedRowKeys: newSelectedRowKeys });
         },
       },
+      {
+        key: "download",
+        text: "Download selected rows",
+        onSelect: (changableRowKeys) => {
+          setVisible(true);
+        //   <Button
+        //   type="primary"
+        //   ghost
+        //   icon={<PlusSquareOutlined />}
+        //   onClick={() => {
+        //     setVisible(true);
+        //   }}
+        // >
+        //   <span>Add campaigns</span>
+        // </Button>
+        },
+      },
     ],
   };
 

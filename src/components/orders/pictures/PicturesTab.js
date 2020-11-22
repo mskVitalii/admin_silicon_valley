@@ -219,30 +219,6 @@ function PicturesTab() {
             </div>
           </Panel>
         </Collapse>
-
-        {/* <Layout>
-          <Content className="table-content">
-            <h2>Order's table</h2>
-            <Table columns={columns} data={data} />
-            <div>
-              <Button
-                type="default"
-                onClick={() => {
-                  setVisible(true);
-                }}
-              >
-                Add Order
-              </Button>
-              <FormOrders
-                visible={visible}
-                onCreate={onCreate}
-                onCancel={() => {
-                  setVisible(false);
-                }}
-              />
-            </div>
-          </Content>
-        </Layout> */}
         <div>
           <h2>Order's table</h2>
           <Table columns={columns} data={data} />

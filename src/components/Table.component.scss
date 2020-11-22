@@ -9,18 +9,22 @@
 }
 
 .table-actions {
+  display: grid;
+  grid-template-columns: repeat(1, 9fr 1fr);
+  gap: 5px;
+
   width: 25%;
+  margin-bottom: .5rem;
+  float: right;
 }
 .btns-actions {
-  margin-bottom: 0.2rem !important;
+  button{
+    height: 100%;
+  }
 }
-.exportButton,
-.downloadButton,
-.deleteButton {
+
+.menu-operations Button {
   width: 100% !important;
-}
-.table-actions {
-  float: right;
 }
 
 .num-rows {

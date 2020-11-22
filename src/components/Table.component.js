@@ -61,7 +61,7 @@ function TableComponent({ columns, data, idTbl }) {
     setSelectedRows({ selectedRowKeys });
   };
   const operations = (
-    <Menu>
+    <Menu className="menu-operations">
       <Menu.Item key="1">
         <Button type="primary" ghost icon={<DownloadOutlined />}>
           <span>Download</span>
@@ -72,12 +72,22 @@ function TableComponent({ columns, data, idTbl }) {
           default={true}
           disabled={true}
           icon={<ExportOutlined />}
-          className="exportButton"
         >
           <span>Export</span>
         </Button>
       </Menu.Item>
-      <Menu.Item key="3">3rd menu item</Menu.Item>
+      <Menu.Item key="3">
+        <Button
+          type="primary"
+          ghost
+          icon={<PlusSquareOutlined />}
+          onClick={() => {
+            setVisible(true);
+          }}
+        >
+          <span>Add campaigns</span>
+        </Button>
+      </Menu.Item>
     </Menu>
   );
   const rowSelection = {
@@ -114,17 +124,17 @@ function TableComponent({ columns, data, idTbl }) {
           return setSelectedRows({ selectedRowKeys: newSelectedRowKeys });
         },
       },
-      {
-        key: "operations",
-        text: (
-          <Dropdown overlay={operations}>
-            <Button>
-              Operations <DownOutlined />
-            </Button>
-          </Dropdown>
-        ),
-        onSelect: (changableRowKeys) => {},
-      },
+      // {
+      //   key: "operations",
+      //   text: (
+      //     <Dropdown overlay={operations}>
+      //       <Button>
+      //         Operations <DownOutlined />
+      //       </Button>
+      //     </Dropdown>
+      //   ),
+      //   onSelect: (changableRowKeys) => {},
+      // },
     ],
   };
 
@@ -153,16 +163,11 @@ function TableComponent({ columns, data, idTbl }) {
           onKeyUp={onSearch}
         />
         <div className="btns-actions">
-          <Button
-            type="primary"
-            ghost
-            icon={<PlusSquareOutlined />}
-            onClick={() => {
-              setVisible(true);
-            }}
-          >
-            <span>Add campaigns</span>
-          </Button>
+          <Dropdown overlay={operations}>
+            <Button>
+              <DownOutlined />
+            </Button>
+          </Dropdown>
         </div>
       </div>
 

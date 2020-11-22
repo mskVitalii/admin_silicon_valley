@@ -1,9 +1,11 @@
 import React, { useContext, useState } from "react";
-import { Table, Input, Button } from "antd";
+import { Table, Input, Button, Dropdown, Menu } from "antd";
 import {
   DownloadOutlined,
   PlusSquareOutlined,
   ExportOutlined,
+  UserOutlined,
+  DownOutlined,
 } from "@ant-design/icons";
 import Context from "../pages/context";
 
@@ -58,6 +60,26 @@ function TableComponent({ columns, data, idTbl }) {
   let onSelectChange = (selectedRowKeys) => {
     setSelectedRows({ selectedRowKeys });
   };
+  const operations = (
+    <Menu>
+      <Menu.Item key="1">
+        <Button type="primary" ghost icon={<DownloadOutlined />}>
+          <span>Download</span>
+        </Button>
+      </Menu.Item>
+      <Menu.Item key="2">
+        <Button
+          default={true}
+          disabled={true}
+          icon={<ExportOutlined />}
+          className="exportButton"
+        >
+          <span>Export</span>
+        </Button>
+      </Menu.Item>
+      <Menu.Item key="3">3rd menu item</Menu.Item>
+    </Menu>
+  );
   const rowSelection = {
     selectedRowKeys: selectedRowKeys.selectedRowKeys,
     onChange: onSelectChange,
@@ -93,79 +115,29 @@ function TableComponent({ columns, data, idTbl }) {
         },
       },
       {
-        key: "download",
-        text: "Download selected rows",
-        onSelect: (changableRowKeys) => {
-          setVisible(true);
-        //   <Button
-        //   type="primary"
-        //   ghost
-        //   icon={<PlusSquareOutlined />}
-        //   onClick={() => {
-        //     setVisible(true);
-        //   }}
-        // >
-        //   <span>Add campaigns</span>
-        // </Button>
-        },
+        key: "operations",
+        text: (
+          <Dropdown overlay={operations}>
+            <Button>
+              Operations <DownOutlined />
+            </Button>
+          </Dropdown>
+        ),
+        onSelect: (changableRowKeys) => {},
       },
     ],
   };
 
-  // function focusButton(e) {
-  //   let btnsAction = document.querySelector(".btns-actions");
-  //   let numBtns = btnsAction.children.length;
-  //   let percTarget = 97 / numBtns + 15;
-  //   let percOther = 97 / numBtns - 15 / (numBtns - 1);
-  //   let idTarget = e.target.id.match(/\d/)[0];
-
-  //   console.log('object :>> ', percTarget, percOther);
-  //   let str = '';
-  //   for(let i = 0; i < numBtns; i++) {
-  //     let _w = idTarget == i ? percTarget : percOther;
-  //     str += `${_w}% `
-  //   }
-  //   console.log('object :>> ', str);
-
-  //   btnsAction.style.gridTemplateColumns = `repeat(${numBtns}, ${str})`;
-  // }
-
   return (
     <div>
+      {/* --НЕ УДАЛЯТЬ-- */}
       {/* <div className="table-info">
         <p>
           Количество строк: <span className="num-rows">{data.length}</span>
         </p>
       </div> */}
+      {/* --НЕ УДАЛЯТЬ-- */}
       <div className="table-actions">
-        <div className="btns-actions">
-          <Button
-            type="primary"
-            ghost
-            icon={<PlusSquareOutlined />}
-            onClick={() => {
-              setVisible(true);
-            }}
-          >
-            <span>Add campaigns</span>
-          </Button>
-          <Button
-            default={true}
-            disabled={true}
-            icon={<DownloadOutlined />}
-            className="downloadButton"
-          >
-            <span>Download</span>
-          </Button>
-          <Button
-            default={true}
-            disabled={true}
-            icon={<ExportOutlined />}
-            className="exportButton"
-          >
-            <span>Export</span>
-          </Button>
-        </div>
         <FormCampaign
           visible={visible}
           onCancel={() => {
@@ -180,6 +152,18 @@ function TableComponent({ columns, data, idTbl }) {
           allowClear
           onKeyUp={onSearch}
         />
+        <div className="btns-actions">
+          <Button
+            type="primary"
+            ghost
+            icon={<PlusSquareOutlined />}
+            onClick={() => {
+              setVisible(true);
+            }}
+          >
+            <span>Add campaigns</span>
+          </Button>
+        </div>
       </div>
 
       <Table

@@ -83,30 +83,6 @@ const UsersPage = () => {
       defaultSortOrder: "descend",
       sorter: (a, b) => a.age - b.age,
     },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    },
-    {
-      title: "Employees",
-      dataIndex: "employees",
-      defaultSortOrder: "descend",
-      sorter: (a, b) => a.age - b.age,
-    }
   ];
   for (const tableCol of columns) {
     if (tableCol.dataIndex == "id") tableCol.width = 55;
@@ -133,6 +109,7 @@ const UsersPage = () => {
     });
   }
   const [data, setData] = useState(initialData);
+  
   function deleteRow(key) {
     setData(data.filter((item) => item.key != key));
   }

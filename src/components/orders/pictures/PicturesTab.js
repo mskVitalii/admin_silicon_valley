@@ -219,8 +219,9 @@ function PicturesTab() {
             </div>
           </Panel>
         </Collapse>
+        
         <div>
-          <h2>Order's table</h2>
+          <h2>Pictures table</h2>
           <Table columns={columns} data={data} />
         </div>
       </Layout>

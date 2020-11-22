@@ -40,6 +40,14 @@ hr {
 //   box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
 // }
 
+.ant-layout-sider {
+  max-width: 15% !important;
+  min-width: 10% !important;
+  width: 10% !important;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border-radius: 1px;
+}
+
 .ant-layout-sider-children {
   display: flex;
   flex-direction: column;
@@ -50,7 +58,9 @@ hr {
 
 .ant-avatar {
   margin: 0 auto;
+  cursor: pointer;
 }
+
 
 .ant-layout-content {
   color: #00214d;

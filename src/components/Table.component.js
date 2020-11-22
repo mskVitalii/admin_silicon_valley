@@ -60,36 +60,7 @@ function TableComponent({ columns, data, idTbl }) {
   let onSelectChange = (selectedRowKeys) => {
     setSelectedRows({ selectedRowKeys });
   };
-  const operations = (
-    <Menu className="menu-operations">
-      <Menu.Item key="1">
-        <Button type="primary" ghost icon={<DownloadOutlined />}>
-          <span>Download</span>
-        </Button>
-      </Menu.Item>
-      <Menu.Item key="2">
-        <Button
-          default={true}
-          disabled={true}
-          icon={<ExportOutlined />}
-        >
-          <span>Export</span>
-        </Button>
-      </Menu.Item>
-      <Menu.Item key="3">
-        <Button
-          type="primary"
-          ghost
-          icon={<PlusSquareOutlined />}
-          onClick={() => {
-            setVisible(true);
-          }}
-        >
-          <span>Add campaigns</span>
-        </Button>
-      </Menu.Item>
-    </Menu>
-  );
+
   const rowSelection = {
     selectedRowKeys: selectedRowKeys.selectedRowKeys,
     onChange: onSelectChange,
@@ -137,6 +108,37 @@ function TableComponent({ columns, data, idTbl }) {
       // },
     ],
   };
+
+  const operations = (
+    <Menu className="menu-operations">
+      <Menu.Item key="1">
+        <Button type="primary" ghost icon={<DownloadOutlined />}>
+          <span>Download</span>
+        </Button>
+      </Menu.Item>
+      <Menu.Item key="2">
+        <Button
+          default={true}
+          disabled={true}
+          icon={<ExportOutlined />}
+        >
+          <span>Export</span>
+        </Button>
+      </Menu.Item>
+      <Menu.Item key="3">
+        <Button
+          type="primary"
+          ghost
+          icon={<PlusSquareOutlined />}
+          onClick={() => {
+            setVisible(true);
+          }}
+        >
+          <span>Add campaigns</span>
+        </Button>
+      </Menu.Item>
+    </Menu>
+  );
 
   return (
     <div>

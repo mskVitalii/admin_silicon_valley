@@ -23,23 +23,18 @@ const { Content, Sider } = Layout
 // Навигация & структура базовой страницы
 function App() {
 
-  // const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
-  // const onCollapse = collapsed => {
-  //   setCollapsed(collapsed);
-  // }
+  const onCollapse = collapsed => {
+    setCollapsed(collapsed);
+  }
 
   let loggedIn = false;
 
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Router>
-        <Sider style={{
-        overflow: 'auto',
-        height: '100vh',
-        position: 'fixed',
-        left: 0,
-        }}>
+        <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
           <Navigation />
           <Avatar style={{
               backgroundColor: "green",
@@ -49,7 +44,7 @@ function App() {
           Misha
           </Avatar>
         </Sider>
-        <Layout style={{ minHeight: '100vh', marginLeft: '150px', backgroundColor: '#fffffe'}}>
+        <Layout style={{ minHeight: '100vh', background: "white" }}>
         <Content style={{ margin: '16px 0'}}>
             {/* <hr/> */}
             <Switch>

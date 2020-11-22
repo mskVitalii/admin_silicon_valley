@@ -6,6 +6,8 @@ import FormOrders from "../../orders/FormOrdersOrder";
 import Table from "../../Table.component";
 import Context from "../../../pages/context";
 
+import './PicturesTab.scss'
+
 const { Panel } = Collapse;
 
 function PicturesTab() {

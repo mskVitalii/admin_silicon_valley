@@ -160,7 +160,7 @@ const QuizzesPage = () => {
             style={{ marginBottom: 32 }}
           >
             <TabPane tab="User's quizzes & interactions" key="1">
-              <h2 style={{ marginLeft: "2rem" }}>User's quizzes</h2>
+              <h2>User's quizzes</h2>
               <Table columns={colsShowQuiz} data={dataShow} idTbl={1} />
               <div>
                 <FormQuizzes

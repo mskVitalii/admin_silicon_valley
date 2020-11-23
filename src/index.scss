@@ -40,10 +40,19 @@ hr {
 //   box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
 // }
 
+.ant-layout-sider {
+
+  position: fixed;
+  z-index: 1;
+  
+}
+
 
 .ant-layout-sider-children {
+  min-height: 95vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   padding-top: 10px;
   padding-bottom: 10px;
 }

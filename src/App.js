@@ -23,7 +23,7 @@ const { Content, Sider } = Layout
 // Навигация & структура базовой страницы
 function App() {
 
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   const onCollapse = collapsed => {
     setCollapsed(collapsed);
@@ -34,11 +34,11 @@ function App() {
   return (
     <Layout style={{ minHeight: '100vh' }}>
       <Router>
-        <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+        <Sider collapsible collapsed={collapsed} onCollapse={onCollapse} style={{minHeight: '100vh'}}>
           <Navigation />
           <Avatar style={{
               backgroundColor: "green",
-              verticalAlign: "center"
+              verticalAlign: "center",
           }}
           size="large" >
           Misha

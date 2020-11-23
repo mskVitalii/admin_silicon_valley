@@ -11,6 +11,7 @@ import {
 } from '@ant-design/icons';
 
 import { PageHeader, Button, Menu } from "antd";
+import "./Table.component.scss";
 
 const { SubMenu } = Menu;
 
